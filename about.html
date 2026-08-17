@@ -1,0 +1,603 @@
+<!-- hello world -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>About — LYNX Technology</title>
+  <meta name="description" content="Learn about LYNX Technology — our mission, team, and the principles that drive everything we build.">
+  <link rel="canonical" href="https://lynxtechnology.com/about">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 60 Q50 20 85 60 Q50 80 15 60Z' stroke='white' stroke-width='4' fill='none'/%3E%3Ccircle cx='50' cy='55' r='10' stroke='white' stroke-width='3' fill='none'/%3E%3Ccircle cx='50' cy='55' r='3' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ——— About Page Specific Styles ——— */
+
+    /* Hero */
+    .about-hero {
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero-title {
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+    }
+
+    .about-hero-sub {
+      margin-top: 2rem;
+      color: #a3a3a3;
+      font-size: 1.125rem;
+      max-width: 40rem;
+      line-height: 1.625;
+    }
+
+    /* Container glow line */
+    .container-glow {
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+
+    /* Story Section */
+    .about-story-image-wrapper {
+      border-radius: 1rem;
+      padding: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-story-image {
+      background: #111;
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .about-story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    /* Desktop: image zoom on hover */
+    @media (hover: hover) {
+      .about-story-image-wrapper:hover img {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+    }
+
+    .about-story-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-story-text {
+      color: #a3a3a3;
+      line-height: 1.625;
+      margin-bottom: 1rem;
+    }
+
+    .about-story-text-muted {
+      color: #737373;
+      line-height: 1.625;
+      margin-bottom: 1rem;
+    }
+
+    /* Values Section */
+    .about-values-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 4rem;
+    }
+
+    .about-value-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1rem;
+      transition: transform 0.4s ease;
+    }
+
+    /* Desktop: value icon pulse on hover */
+    @media (hover: hover) {
+      .process-cell:hover .about-value-icon {
+        transform: scale(1.2) rotate(10deg);
+      }
+    }
+
+    .about-value-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-value-description {
+      font-size: 0.875rem;
+      color: #737373;
+      line-height: 1.625;
+    }
+
+    /* ——— Desktop Parallax Effect ——— */
+    @media (hover: hover) {
+      .parallax-section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .parallax-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.02) 0%, transparent 70%);
+        will-change: transform;
+        pointer-events: none;
+      }
+    }
+
+    /* ——— Mobile Touch Features ——— */
+
+    /* Mobile swipeable value cards */
+    @media (hover: none) and (max-width: 768px) {
+      .process-grid-3 {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 0.5rem 0.25rem 1.5rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .process-grid-3::-webkit-scrollbar {
+        display: none;
+      }
+
+      .process-grid-3 .process-cell {
+        flex: 0 0 85%;
+        max-width: 320px;
+        scroll-snap-align: center;
+        border-radius: 1rem;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.06);
+        padding: 2rem;
+        transition: transform 0.2s ease;
+      }
+
+      .process-grid-3 .process-cell:active {
+        transform: scale(0.97);
+      }
+
+      /* Mobile swipe hint */
+      .swipe-values-hint {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        opacity: 0.4;
+      }
+
+      .swipe-values-hint span {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #737373;
+        transition: opacity 0.3s;
+      }
+
+      .swipe-values-hint span.active {
+        background: #fff;
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .swipe-values-hint {
+        display: none;
+      }
+    }
+
+    /* ——— Mobile Responsive ——— */
+    @media (max-width: 768px) {
+      .about-hero {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+      }
+
+      .about-hero-title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+      }
+
+      .about-hero-sub {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .about-story-title {
+        font-size: 1.5rem;
+      }
+
+      .about-values-title {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .about-story-image-wrapper {
+        margin-bottom: 1rem;
+      }
+
+      .process-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero-title {
+        font-size: clamp(2rem, 7vw, 3rem);
+      }
+
+      .about-hero-sub {
+        font-size: 0.9rem;
+      }
+
+      .about-story-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ——— Subtle Entrance Animations ——— */
+    .stagger-values .process-cell {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .stagger-values .process-cell:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-values .process-cell:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-values .process-cell:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ——— Mouse Tracking Glow for About Hero ——— */
+    .about-hero-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+
+    .about-hero-glow.active {
+      opacity: 1;
+    }
+
+    .about-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ——— Mobile touch glow ——— */
+    .about-hero-glow-touch {
+      display: none;
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .about-hero-glow-touch.active {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero-glow-touch {
+        display: block;
+      }
+    }
+
+    /* ——— Mobile tap feedback for story image ——— */
+    @media (hover: none) {
+      .about-story-image-wrapper:active img {
+        transform: scale(1.03);
+        opacity: 0.8;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+      }
+    }
+
+    /* ——— Counter animation for stats (optional) ——— */
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #737373;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body class="noise grid-bg">
+
+  <!-- Nav -->
+  <nav id="navbar" class="nav-wrapper nav-blur border-bottom">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">
+          <svg class="nav-brand-icon" viewBox="0 0 100 100" fill="none"><path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3" stroke-linejoin="round"/><circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5"/><circle cx="50" cy="55" r="3" fill="white"/></svg>
+          <span class="nav-brand-text">LYNX</span>
+        </a>
+
+        <div class="nav-desktop">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about" class="nav-link active">About</a>
+          <a href="/services" class="nav-link">Services</a>
+          <a href="/contact" class="nav-cta">Get in Touch</a>
+        </div>
+
+        <button id="menuToggle" class="nav-menu-toggle" aria-label="Toggle menu">
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+          <span class="menu-line menu-line-short"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/" class="mobile-link">Home</a>
+    <a href="/about" class="mobile-link">About</a>
+    <a href="/services" class="mobile-link">Services</a>
+    <div class="glow-line mobile-divider"></div>
+    <a href="/contact" class="btn-secondary mobile-cta">Get in Touch</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="about-hero" id="aboutHero">
+    <!-- Desktop glow -->
+    <div class="about-hero-glow" id="aboutHeroGlow"></div>
+    <!-- Mobile glow -->
+    <div class="about-hero-glow-touch" id="aboutHeroGlowTouch"></div>
+
+    <div class="container">
+      <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">About LYNX</span>
+      <h1 class="fade-up about-hero-title">
+        We see further.<br><span class="text-gray-dark">We build faster.</span>
+      </h1>
+      <p class="fade-up about-hero-sub">
+        LYNX Technology was founded on a singular conviction: that the gap between what businesses need and what technology can deliver is an engineering problem — not a mystery.
+      </p>
+    </div>
+  </section>
+
+  <div class="glow-line container-glow"></div>
+
+  <!-- Story -->
+  <section class="section parallax-section" id="storySection">
+    <!-- Desktop parallax background -->
+    <div class="parallax-bg" id="parallaxBg"></div>
+
+    <div class="container">
+      <div class="grid lg-grid-cols-2 gap-16 items-center">
+        <div class="fade-up border-gradient about-story-image-wrapper">
+          <div class="about-story-image">
+            <img src="https://picsum.photos/seed/lynx-about-story/800/600.jpg" alt="LYNX office">
+          </div>
+        </div>
+        <div>
+          <h2 class="fade-up about-story-title">Our Story</h2>
+          <p class="fade-up about-story-text">LYNX Technology is a newly founded startup built by a core team of experienced senior engineers. Each of us has spent years solving hard problems at scale for Fortune 500 companies and leading startups, and we decided to start fresh with a single mission.</p>
+          <p class="fade-up about-story-text-muted">We're not here to follow industry patterns or deliver "good enough" solutions. We're building for teams that refuse to compromise, who want engineering excellence as their competitive advantage.</p>
+          <p class="fade-up about-story-text-muted">Remote-first and lean, we're focused on partnering with a select few projects where we can make an outsized impact. Every line of code, every architectural decision, every deployment reflects our commitment to precision and excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section border-top">
+    <div class="container">
+      <h2 class="fade-up about-values-title">What we stand for</h2>
+      <div class="process-grid-3 stagger-values" id="valuesGrid">
+        <div class="process-cell">
+          <span class="about-value-icon">◉</span>
+          <h3 class="about-value-title">Precision</h3>
+          <p class="about-value-description">Every line of code, every architecture decision, every deployment — executed with exacting standards.</p>
+        </div>
+        <div class="process-cell">
+          <span class="about-value-icon">◎</span>
+          <h3 class="about-value-title">Transparency</h3>
+          <p class="about-value-description">No black boxes. You own your code, your data, and your understanding of both.</p>
+        </div>
+        <div class="process-cell">
+          <span class="about-value-icon">△</span>
+          <h3 class="about-value-title">Ambition</h3>
+          <p class="about-value-description">We partner with teams who want to lead their category, not follow it.</p>
+        </div>
+      </div>
+
+      <!-- Mobile swipe hint -->
+      <div class="swipe-values-hint" id="swipeHint">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats (optional addition) -->
+  <section class="section-sm border-top border-bottom">
+    <div class="container">
+      <div class="grid-4">
+        <div class="text-center">
+          <p class="stat-number" data-target="5">0</p>
+          <p class="stat-label">Core Team Members</p>
+        </div>
+        <div class="text-center">
+          <p class="stat-number" data-target="50" data-suffix="+">0</p>
+          <p class="stat-label">Years Combined Experience</p>
+        </div>
+        <div class="text-center">
+          <p class="stat-number" data-target="100" data-suffix="%">0</p>
+          <p class="stat-label">Remote-First</p>
+        </div>
+        <div class="text-center">
+          <p class="stat-number" data-target="2026">0</p>
+          <p class="stat-label">Founded</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-simple">
+    <div class="container">
+      <div class="footer-simple-inner">
+        <p class="footer-copy">&copy; 2026 LYNX Technology</p>
+        <a href="/" class="footer-link footer-link-sm">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    // ——— About Hero Glow (Desktop) ———
+    const aboutHero = document.getElementById('aboutHero');
+    const aboutHeroGlow = document.getElementById('aboutHeroGlow');
+
+    aboutHero.addEventListener('mousemove', function(e) {
+      const rect = aboutHero.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      aboutHeroGlow.style.left = x + 'px';
+      aboutHeroGlow.style.top = y + 'px';
+      aboutHeroGlow.classList.add('active');
+    });
+
+    aboutHero.addEventListener('mouseleave', function() {
+      aboutHeroGlow.classList.remove('active');
+    });
+
+    // ——— About Hero Glow (Mobile Touch) ———
+    const aboutHeroGlowTouch = document.getElementById('aboutHeroGlowTouch');
+
+    aboutHero.addEventListener('touchmove', function(e) {
+      const touch = e.touches[0];
+      const rect = aboutHero.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+
+      aboutHeroGlowTouch.style.left = x + 'px';
+      aboutHeroGlowTouch.style.top = y + 'px';
+      aboutHeroGlowTouch.classList.add('active');
+    }, { passive: true });
+
+    aboutHero.addEventListener('touchend', function() {
+      aboutHeroGlowTouch.classList.remove('active');
+    }, { passive: true });
+
+    // ——— Desktop Parallax Effect ———
+    const parallaxBg = document.getElementById('parallaxBg');
+    const storySection = document.getElementById('storySection');
+
+    if (window.innerWidth > 768 && parallaxBg) {
+      window.addEventListener('scroll', function() {
+        const rect = storySection.getBoundingClientRect();
+        const scrollProgress = 1 - (rect.top / window.innerHeight);
+        const offset = Math.min(Math.max(scrollProgress * 60, -30), 30);
+
+        parallaxBg.style.transform = `translateY(${offset}px) scale(1.1)`;
+      }, { passive: true });
+    }
+
+    // ——— Mobile Swipe Hint for Values ———
+    const valuesGrid = document.getElementById('valuesGrid');
+    const swipeHint = document.getElementById('swipeHint');
+
+    if (valuesGrid && swipeHint && window.innerWidth <= 768) {
+      valuesGrid.addEventListener('scroll', function() {
+        const scrollLeft = this.scrollLeft;
+        const maxScroll = this.scrollWidth - this.clientWidth;
+        const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+
+        const totalDots = swipeHint.querySelectorAll('span').length;
+        const activeIndex = Math.round(progress * (totalDots - 1));
+
+        swipeHint.querySelectorAll('span').forEach((dot, i) => {
+          dot.classList.toggle('active', i === activeIndex);
+        });
+      }, { passive: true });
+    }
+
+    // ——— Counter Animation for Stats ———
+    document.addEventListener('DOMContentLoaded', function() {
+      const counters = document.querySelectorAll('.stat-number');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = parseInt(entry.target.dataset.target);
+            const suffix = entry.target.dataset.suffix || '';
+            let current = 0;
+            const increment = Math.ceil(target / 40);
+            const duration = 1200;
+            const stepTime = Math.floor(duration / 40);
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              entry.target.textContent = current + suffix;
+            }, stepTime);
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(counter => observer.observe(counter));
+    });
+  </script>
+</body>
+</html>

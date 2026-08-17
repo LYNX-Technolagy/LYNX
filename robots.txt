@@ -1,0 +1,10 @@
+# robots.txt for LYNX Technology
+
+User-agent: *
+Allow: /
+
+Sitemap: https://lynxtechnology.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
