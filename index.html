@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LYNX Technology — Engineering the Future</title>
+    <title>LYNX Technology — Products &amp; Services for Local Business</title>
     <meta name="description"
-        content="LYNX Technology builds next-generation infrastructure, AI systems, and enterprise platforms that redefine what's possible.">
-    <meta property="og:title" content="LYNX Technology — Engineering the Future">
-    <meta property="og:description" content="Next-generation infrastructure, AI systems, and enterprise platforms.">
+        content="LYNX Technology provides IT support, web development, and product solutions for local businesses in the Eastern Cape and beyond.">
+    <meta property="og:title" content="LYNX Technology — Products &amp; Services for Local Business">
+    <meta property="og:description" content="IT support, web development, and product solutions for local businesses.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lynxtechnology.com/">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://lynxtechnology.com/">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 60 Q50 20 85 60 Q50 80 15 60Z' stroke='white' stroke-width='4' fill='none'/%3E%3Ccircle cx='50' cy='55' r='10' stroke='white' stroke-width='3' fill='none'/%3E%3Ccircle cx='50' cy='55' r='3' fill='white'/%3E%3C/svg%3E">
@@ -19,98 +18,210 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* ——— Letter Hover Animation ——— */
-        .letter-animate {
-            display: inline-block;
+        /* ===== Index Page Specific Styles ===== */
+
+        /* Service Cards */
+        .service-showcase {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .service-card-home {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
             position: relative;
+            overflow: hidden;
         }
 
-        .letter-animate span {
+        .service-card-home:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card-home .icon-wrapper {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #a3a3a3;
+            margin-bottom: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .service-card-home:hover .icon-wrapper {
+            color: #fff;
+        }
+
+        .service-card-home h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card-home p {
+            color: #a3a3a3;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .service-card-home .arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #a3a3a3;
+            transition: all 0.3s;
+        }
+
+        .service-card-home:hover .arrow {
+            color: #fff;
+            gap: 0.75rem;
+        }
+
+        .service-card-home .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 9999px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #737373;
+        }
+
+        /* Product Highlight */
+        .product-highlight {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .product-highlight .badge {
             display: inline-block;
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
-            cursor: default;
-            position: relative;
-            will-change: transform;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a3a3a3;
+            margin-bottom: 1rem;
         }
 
-        /* Desktop hover only */
-        @media (hover: hover) {
-            .letter-animate span:hover {
-                transform: translateY(-12px) scale(1.05);
-                color: #ffffff;
+        .product-highlight h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-highlight p {
+            color: #a3a3a3;
+            max-width: 32rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #d4d4d4;
+        }
+
+        .product-features-list li::before {
+            content: '✓';
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .product-highlight .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Trust Indicators */
+        .trust-bar {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .trust-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
-
-            .letter-animate span::after {
-                content: '';
-                position: absolute;
-                inset: -4px -2px;
-                border-radius: 4px;
-                background: rgba(255, 255, 255, 0.05);
-                filter: blur(8px);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                pointer-events: none;
-                z-index: -1;
-            }
-
-            .letter-animate span:hover::after {
-                opacity: 1;
-            }
         }
 
-        .letter-animate span:active {
-            transform: translateY(-6px) scale(0.95);
-            transition-duration: 0.1s;
+        .trust-item {
+            text-align: center;
         }
 
-        .letter-animate span:nth-child(1) {
-            transition-delay: 0ms;
+        .trust-item .number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.025em;
         }
 
-        .letter-animate span:nth-child(2) {
-            transition-delay: 5ms;
+        .trust-item .label {
+            font-size: 0.75rem;
+            color: #737373;
+            margin-top: 0.25rem;
         }
 
-        .letter-animate span:nth-child(3) {
-            transition-delay: 10ms;
-        }
-
-        .letter-animate span:nth-child(4) {
-            transition-delay: 15ms;
-        }
-
-        .letter-animate span:nth-child(5) {
-            transition-delay: 20ms;
-        }
-
-        .letter-animate span:nth-child(6) {
-            transition-delay: 25ms;
-        }
-
-        .letter-animate span:nth-child(7) {
-            transition-delay: 30ms;
-        }
-
-        .letter-animate span:nth-child(8) {
-            transition-delay: 35ms;
-        }
-
-        .letter-animate span:nth-child(9) {
-            transition-delay: 40ms;
-        }
-
-        .letter-animate span:nth-child(10) {
-            transition-delay: 45ms;
-        }
-
-        .letter-animate span:nth-child(11) {
-            transition-delay: 50ms;
-        }
-
-        /* ——— Priority 1: Mouse-Tracking Glow ——— */
+        /* Hero Glow (for mobile) */
         .hero-glow {
             position: absolute;
             width: 500px;
@@ -128,258 +239,60 @@
             opacity: 1;
         }
 
+        .hero-glow-touch {
+            display: none;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-glow-touch.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-glow-touch {
+                display: block;
+            }
+
+            .hero-glow {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-glow {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Hero Tilt */
+        .hero-tilt {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+
+        .hero-tilt-inner {
+            transition: transform 0.1s ease-out;
+            transform: rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg));
+            transform-style: preserve-3d;
+        }
+
         .hero-content {
             position: relative;
             z-index: 2;
         }
 
-        /* ——— Priority 3: Typewriter Subtitle ——— */
-        .typewriter-wrapper {
-            display: inline-block;
-            position: relative;
-        }
-
-        .typewriter-text {
-            display: inline;
-            color: #a3a3a3;
-            font-size: 1.0625rem;
-            line-height: 1.625;
-        }
-
-        .typewriter-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background: #a3a3a3;
-            margin-left: 2px;
-            vertical-align: text-bottom;
-            animation: blink 0.8s step-end infinite;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .typewriter-cursor.done {
-            animation: none;
-            opacity: 0;
-        }
-
-        .hero-description {
-            min-height: 2.5rem;
-        }
-
-        /* ——— Mobile Tilt (only on touch devices) ——— */
-        @media (hover: none) and (max-width: 768px) {
-            .hero-tilt {
-                perspective: 800px;
-                transform-style: preserve-3d;
-            }
-
-            .hero-tilt-inner {
-                transition: transform 0.05s ease-out;
-                transform: rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg));
-                transform-style: preserve-3d;
-            }
-
-            /* Mobile touch feedback for letters */
-            .letter-animate span:active {
-                transform: translateY(-8px) scale(1.04);
-                color: #ffffff;
-            }
-
-            .letter-animate span::after {
-                display: none;
-            }
-        }
-
-        /* ——— Mobile Responsive ——— */
-        @media (max-width: 768px) {
-            .hero-glow {
-                width: 300px;
-                height: 300px;
-            }
-
-            .hero-title {
-                font-size: clamp(2.5rem, 10vw, 4rem) !important;
-            }
-
-            .hero-description {
-                min-height: 3.5rem;
-                padding: 0 0.5rem;
-            }
-
-            .typewriter-text {
-                font-size: 0.95rem;
-                line-height: 1.5;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                gap: 0.75rem;
-                width: 100%;
-                max-width: 280px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                min-width: unset;
-                padding: 0.75rem 1.5rem;
-                font-size: 0.875rem;
-            }
-
-            .hero-scroll {
-                bottom: 1.5rem;
-            }
-
-            .hero-scroll-label {
-                font-size: 0.5rem;
-            }
-
-            .hero-scroll-line {
-                height: 1.5rem;
-            }
-
-            /* Disable hover effects on mobile */
-            .letter-animate span:hover {
-                transform: none !important;
-                color: inherit !important;
-            }
-
-            .letter-animate span:hover::after {
-                opacity: 0 !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: clamp(2rem, 8vw, 2.8rem) !important;
-                line-height: 1.1;
-            }
-
-            .typewriter-text {
-                font-size: 0.85rem;
-            }
-
-            .hero-description {
-                min-height: 4rem;
-                padding: 0 0.25rem;
-            }
-
-            .hero-glow {
-                width: 200px;
-                height: 200px;
-            }
-
-            .hero-status {
-                padding: 0.35rem 0.75rem;
-                font-size: 0.65rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-status-text {
-                font-size: 0.65rem;
-            }
-
-            .pulse-dot {
-                width: 6px;
-                height: 6px;
-            }
-
-            .hero-actions {
-                max-width: 240px;
-                gap: 0.6rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.6rem 1.25rem;
-                font-size: 0.8rem;
-                min-height: 44px;
-            }
-
-            .hero-scroll {
-                bottom: 1rem;
-            }
-
-            .hero-dot-1 {
-                top: 10%;
-                left: 8%;
-            }
-
-            .hero-dot-2 {
-                top: 30%;
-                right: 10%;
-            }
-
-            .hero-dot-3 {
-                bottom: 20%;
-                left: 10%;
-            }
-
-            .hero-dot-4 {
-                top: 50%;
-                left: 5%;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .hero-title {
-                font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
-            }
-
-            .typewriter-text {
-                font-size: 0.78rem;
-            }
-
-            .hero-description {
-                min-height: 4.5rem;
-            }
-
-            .hero-glow {
-                display: none;
-            }
-        }
-
-        /* ——— Mobile Touch Enhancements ——— */
-
-        /* Touch ripple effect on buttons */
-        .btn-primary,
-        .btn-secondary {
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-primary .ripple,
-        .btn-secondary .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out;
-            pointer-events: none;
-        }
-
-        @keyframes rippleAnim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Mobile swipe hint animation */
+        /* Swipe Hint */
         .swipe-hint {
             display: none;
             position: absolute;
@@ -414,35 +327,54 @@
             }
         }
 
-        /* Mobile gesture glow - follows touch */
-        .hero-glow-touch {
-            display: none;
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .hero-glow-touch.active {
-            opacity: 1;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-glow-touch {
-                display: block;
+            .product-highlight {
+                padding: 1.5rem;
+            }
+
+            .product-highlight h3 {
+                font-size: 1.5rem;
+            }
+
+            .product-features-list {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .service-card-home {
+                padding: 1.5rem;
+            }
+
+            .trust-item .number {
+                font-size: 1.5rem;
             }
         }
 
-        /* Prevent text selection on mobile interactions */
-        .letter-animate span {
-            -webkit-user-select: none;
-            user-select: none;
+        @media (max-width: 480px) {
+            .product-highlight {
+                padding: 1.25rem;
+            }
+
+            .product-highlight h3 {
+                font-size: 1.25rem;
+            }
+
+            .service-card-home {
+                padding: 1.25rem;
+            }
+
+            .service-card-home .icon-wrapper {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1.5rem 0;
+            }
         }
     </style>
 </head>
@@ -465,9 +397,10 @@
                 </a>
 
                 <div class="nav-desktop">
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="contact.html" class="nav-cta">Get in Touch</a>
+                    <a href="troubleshoot.html" class="nav-link">Troubleshoot</a>
+                    <a href="fullstack.html" class="nav-link">Full-Stack</a>
+                    <a href="venu.html" class="nav-link">Venu</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
                 </div>
 
                 <button id="menuToggle" class="nav-menu-toggle" aria-label="Toggle menu">
@@ -481,18 +414,17 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#services" class="mobile-link">Services</a>
+        <a href="troubleshoot.html" class="mobile-link">Troubleshoot</a>
+        <a href="fullstack.html" class="mobile-link">Full-Stack</a>
+        <a href="venu.html" class="mobile-link">Venu</a>
         <div class="glow-line mobile-divider"></div>
-        <a href="#contact" class="btn-secondary mobile-cta">Get in Touch</a>
+        <a href="contact.html" class="btn-secondary mobile-cta">Contact</a>
     </div>
 
     <!-- ============ HERO ============ -->
     <section class="relative min-h-screen flex-center hero-gradient hero-tilt" id="heroSection">
-        <!-- Priority 1: Mouse-Tracking Glow (Desktop) -->
+        <!-- Mouse-Tracking Glow -->
         <div class="hero-glow" id="heroGlow"></div>
-
-        <!-- Mobile Touch Glow -->
         <div class="hero-glow-touch" id="heroGlowTouch"></div>
 
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
@@ -505,25 +437,22 @@
         <div class="relative container text-center hero-content hero-tilt-inner" id="heroTiltInner">
             <div class="fade-up hero-status">
                 <span class="pulse-dot"></span>
-                <span class="hero-status-text">Systems Operational</span>
+                <span class="hero-status-text">Eastern Cape · South Africa</span>
             </div>
 
             <h1 class="fade-up hero-title text-glow-strong">
-                <span class="letter-animate">Engineering</span><br>
-                <span class="hero-title-accent">the future</span>
+                <span class="letter-animate">Products</span><br>
+                <span class="hero-title-accent">&amp; services for local business</span>
             </h1>
 
-            <!-- Priority 3: Typewriter Subtitle -->
             <p class="fade-up hero-description">
-                <span class="typewriter-wrapper">
-                    <span class="typewriter-text" id="typewriterText"></span>
-                    <span class="typewriter-cursor" id="typewriterCursor"></span>
-                </span>
+                IT support, web development, and product solutions built for South African businesses.
+                Transparent pricing, fast response, and long-term support.
             </p>
 
             <div class="fade-up hero-actions">
-                <a href="#services" class="btn-primary" id="btnExplore">Explore Services →</a>
-                <a href="#about" class="btn-secondary" id="btnLearn">Learn More</a>
+                <a href="#services" class="btn-primary">Explore Services →</a>
+                <a href="contact.html" class="btn-secondary">Get in Touch</a>
             </div>
 
             <div class="fade-up hero-scroll">
@@ -531,331 +460,126 @@
                 <div class="hero-scroll-line"></div>
             </div>
 
-            <!-- Mobile swipe hint -->
             <div class="swipe-hint">↓ Swipe to explore</div>
         </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee-wrapper border-top border-bottom overflow-hidden">
-        <div class="marquee-track">
-            <span class="marquee-item">
-                <span>Infrastructure</span><span class="marquee-separator">◆</span>
-                <span>Artificial Intelligence</span><span class="marquee-separator">◆</span>
-                <span>Cloud Architecture</span><span class="marquee-separator">◆</span>
-                <span>Cybersecurity</span><span class="marquee-separator">◆</span>
-                <span>Data Engineering</span><span class="marquee-separator">◆</span>
-                <span>Enterprise Platforms</span><span class="marquee-separator">◆</span>
-                <span>DevOps</span><span class="marquee-separator">◆</span>
-                <span>Machine Learning</span><span class="marquee-separator">◆</span>
-            </span>
-            <span class="marquee-item">
-                <span>Infrastructure</span><span class="marquee-separator">◆</span>
-                <span>Artificial Intelligence</span><span class="marquee-separator">◆</span>
-                <span>Cloud Architecture</span><span class="marquee-separator">◆</span>
-                <span>Cybersecurity</span><span class="marquee-separator">◆</span>
-                <span>Data Engineering</span><span class="marquee-separator">◆</span>
-                <span>Enterprise Platforms</span><span class="marquee-separator">◆</span>
-                <span>DevOps</span><span class="marquee-separator">◆</span>
-                <span>Machine Learning</span><span class="marquee-separator">◆</span>
-            </span>
+    <!-- ============ TRUST BAR ============ -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="number">2026</div>
+                    <div class="label">Founded</div>
+                </div>
+                <div class="trust-item">
+                    <div class="number">Eastern Cape</div>
+                    <div class="label">Based</div>
+                </div>
+                <div class="trust-item">
+                    <div class="number">100%</div>
+                    <div class="label">Remote-First</div>
+                </div>
+                <div class="trust-item">
+                    <div class="number">Transparent</div>
+                    <div class="label">Pricing</div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- ============ ABOUT ============ -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="grid-2 items-center">
-                <div>
-                    <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Who We
-                        Are</span>
-                    <h2 class="fade-up text-4xl font-bold tracking-tight leading-tight">
-                        Built different.<br>
-                        <span class="text-gray-dark">By design.</span>
-                    </h2>
-                    <div class="glow-line about-glow-line"></div>
-                    <p class="fade-up text-gray text-base leading-relaxed mb-6">
-                        LYNX Technology is a deep-tech company founded on the belief that the most transformative
-                        solutions emerge at the intersection of rigorous engineering and radical creativity.
-                    </p>
-                    <p class="fade-up text-gray-dark text-sm leading-relaxed">
-                        Our goal is not just to make global changes but to ensure that the local businesses, the ones
-                        easily forgotten, are also able to thrive on advancements in technology.
-                    </p>
-                </div>
-
-                <div class="fade-up relative">
-                    <div class="border-gradient rounded-xl">
-                        <div class="about-image-wrapper">
-                            <img src="https://picsum.photos/seed/lynx-tech-about/800/600.jpg" alt="LYNX Technology team"
-                                class="about-image">
-                            <div class="scan-line"></div>
-                            <div class="about-image-overlay">
-                                <div class="about-image-badge">
-                                    <p class="about-image-badge-label">Founded</p>
-                                    <p class="about-image-badge-value">2024</p>
-                                </div>
-                                <div class="about-image-badge">
-                                    <p class="about-image-badge-label">HQ</p>
-                                    <p class="about-image-badge-value">Global</p>
-                                </div>
-                                <div class="about-image-badge">
-                                    <p class="about-image-badge-label">Team</p>
-                                    <p class="about-image-badge-value">40+</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-corner top-left"></div>
-                    <div class="about-corner bottom-right"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ MISSION ============ -->
-    <section class="section-sm border-top border-bottom">
-        <div class="container">
-            <div class="text-center max-w-40 mx-auto">
-                <p class="fade-up text-base text-gray-dark leading-relaxed">
-                    We are a newly founded team of aspirational engineers with a mission to build next-generation
-                    infrastructure, AI systems, and enterprise platforms that redefine what's possible. Our goal is to
-                    empower businesses to achieve their full potential through innovative technology solutions.
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- ============ SERVICES ============ -->
     <section id="services" class="section">
         <div class="container">
-            <div class="max-w-40 mb-10">
+            <div class="text-center max-w-40 mx-auto mb-10">
                 <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">What We
-                    Do</span>
-                <h2 class="fade-up text-4xl font-bold leading-tight tracking-tight">
-                    Capabilities that<br><span class="text-gray-dark">move needles.</span>
+                    Offer</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Services that<br><span class="text-gray-dark">actually help your business</span>
                 </h2>
+                <p class="fade-up text-gray-dark mt-4">
+                    No fluff. Just real solutions that solve real problems.
+                </p>
             </div>
 
-            <div class="grid-3 stagger">
-
-                <!-- Service 1 -->
-                <div class="fade-up card-glow border-gradient card-service" data-index="0">
-                    <div class="card-service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" />
-                        </svg>
+            <div class="service-showcase">
+                <!-- Service 1: Troubleshoot -->
+                <a href="troubleshoot.html" class="fade-up service-card-home">
+                    <span class="badge">IT Support</span>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-laptop"></i>
                     </div>
-                    <h3 class="card-service-title">Computer Troubleshooting</h3>
-                    <p class="card-service-description">Expert support for diagnosing and resolving complex hardware and
-                        software issues.</p>
-                    <span class="card-service-link">Learn more →</span>
-                </div>
+                    <h3>LYNX Troubleshoot</h3>
+                    <p>Fast, reliable IT support for local businesses. Laptop repair, printer setup, network
+                        troubleshooting, virus removal — we fix it all.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
 
-                <!-- Service 2 -->
-                <div class="fade-up card-glow border-gradient card-service" data-index="1">
-                    <div class="card-service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                        </svg>
+                <!-- Service 2: Full-Stack -->
+                <a href="fullstack.html" class="fade-up service-card-home">
+                    <span class="badge">Web Development</span>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="card-service-title">Product Development and Implementation  </h3>
-                        <p class="card-service-description">End-to-end product development and implementation services to bring your ideas to life.</p>
-                    <span class="card-service-link">Learn more →</span>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="fade-up card-glow border-gradient card-service" data-index="2">
-                    <div class="card-service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                        </svg>
-                    </div>
-                    <h3 class="card-service-title">Full-Stack Development</h3>
-                    <p class="card-service-description">Modern, responsive websites and applications built with the
-                        latest technologies.</p>
-                    <span class="card-service-link">Learn more →</span>
-                </div>
-
+                    <h3>LYNX Full-Stack</h3>
+                    <p>Custom web apps, websites, and templates built with modern tech. From MVPs to full-scale
+                        platforms — we deliver quality code.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ============ PROCESS ============ -->
+    <!-- ============ PRODUCT HIGHLIGHT ============ -->
     <section class="section border-top">
         <div class="container">
-            <div class="text-center max-w-40 mx-auto mb-10">
-                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Our
-                    Process</span>
-                <h2 class="fade-up text-3xl font-bold tracking-tight">
-                    Methodical.<br><span class="text-gray-dark">Never mechanical.</span>
+            <div class="fade-up product-highlight">
+                <span class="badge">Our Product</span>
+                <h3>Venu — <span class="text-gray-dark">Where the night takes you.</span></h3>
+                <p>Your nightlife social platform. Discover venues, share moments, and stay connected to your nightlife
+                    circle.</p>
+                <ul class="product-features-list">
+                    <li>
+                        <span class="feature-icon"
+                            style="display:inline-flex;align-items:center;justify-content:center;width:1.25rem;color:#737373;font-size:0.875rem;">◆</span>
+                        TikTok-Style Feed — Full-screen photos from clubs, bars, and events
+                    </li>
+                    <li>
+                        <span class="feature-icon"
+                            style="display:inline-flex;align-items:center;justify-content:center;width:1.25rem;color:#737373;font-size:0.875rem;">◆</span>
+                        Instagram-Style Profiles — Follow friends, build your nightlife identity
+                    </li>
+                    <li>
+                        <span class="feature-icon"
+                            style="display:inline-flex;align-items:center;justify-content:center;width:1.25rem;color:#737373;font-size:0.875rem;">◆</span>
+                        Google Maps Discovery — Find venues near you, see what's trending
+                    </li>
+                    <li>
+                        <span class="feature-icon"
+                            style="display:inline-flex;align-items:center;justify-content:center;width:1.25rem;color:#737373;font-size:0.875rem;">◆</span>
+                        Stay Connected — Build your nightlife circle
+                    </li>
+                </ul>
+                <div class="btn-group">
+                    <a href="venu.html" class="btn-primary">Learn More</a>
+                    <a href="contact.html" class="btn-secondary">Get Early Access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section border-top">
+        <div class="container text-center">
+            <div class="fade-up" style="max-width: 40rem; margin: 0 auto;">
+                <h2 class="text-3xl font-bold tracking-tight">
+                    Ready to work with us?
                 </h2>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-cell fade-up" data-index="0">
-                    <span class="step-num">01</span>
-                    <h3 class="process-cell-title">Discovery</h3>
-                    <p class="process-cell-description">Deep-dive into your domain, constraints, and ambitions. We map
-                        the terrain before writing a single line.</p>
-                </div>
-                <div class="process-cell fade-up" data-index="1">
-                    <span class="step-num">02</span>
-                    <h3 class="process-cell-title">Architecture</h3>
-                    <p class="process-cell-description">System design that balances elegance with pragmatism. Every
-                        decision documented and defensible.</p>
-                </div>
-                <div class="process-cell fade-up" data-index="2">
-                    <span class="step-num">03</span>
-                    <h3 class="process-cell-title">Execution</h3>
-                    <p class="process-cell-description">Rapid iteration in weekly sprints. You see progress, not
-                        promises. Ship early, refine often.</p>
-                </div>
-                <div class="process-cell fade-up" data-index="3">
-                    <span class="step-num">04</span>
-                    <h3 class="process-cell-title">Evolution</h3>
-                    <p class="process-cell-description">Launch is day one, not the finish line. Continuous monitoring,
-                        optimization, and scaling support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ TECH STACK MARQUEE ============ -->
-    <div class="marquee-wrapper border-top border-bottom overflow-hidden">
-        <div class="marquee-track marquee-track-reverse">
-            <span class="marquee-stack">
-                <span>React</span><span class="marquee-separator">/</span>
-                <span>Next.js</span><span class="marquee-separator">/</span>
-                <span>TypeScript</span><span class="marquee-separator">/</span>
-                <span>Go</span><span class="marquee-separator">/</span>
-                <span>Rust</span><span class="marquee-separator">/</span>
-                <span>Python</span><span class="marquee-separator">/</span>
-                <span>Kubernetes</span><span class="marquee-separator">/</span>
-                <span>Terraform</span><span class="marquee-separator">/</span>
-                <span>AWS</span><span class="marquee-separator">/</span>
-                <span>GCP</span><span class="marquee-separator">/</span>
-                <span>PyTorch</span><span class="marquee-separator">/</span>
-                <span>PostgreSQL</span><span class="marquee-separator">/</span>
-                <span>Redis</span><span class="marquee-separator">/</span>
-                <span>Kafka</span>
-            </span>
-            <span class="marquee-stack">
-                <span>React</span><span class="marquee-separator">/</span>
-                <span>Next.js</span><span class="marquee-separator">/</span>
-                <span>TypeScript</span><span class="marquee-separator">/</span>
-                <span>Go</span><span class="marquee-separator">/</span>
-                <span>Rust</span><span class="marquee-separator">/</span>
-                <span>Python</span><span class="marquee-separator">/</span>
-                <span>Kubernetes</span><span class="marquee-separator">/</span>
-                <span>Terraform</span><span class="marquee-separator">/</span>
-                <span>AWS</span><span class="marquee-separator">/</span>
-                <span>GCP</span><span class="marquee-separator">/</span>
-                <span>PyTorch</span><span class="marquee-separator">/</span>
-                <span>PostgreSQL</span><span class="marquee-separator">/</span>
-                <span>Redis</span><span class="marquee-separator">/</span>
-                <span>Kafka</span>
-            </span>
-        </div>
-    </div>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray tracking-wider">
-                    Featured Projects
-                </span>
-                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Websites, Apps, and Research</span>
-                    <h2 class="fade-up text-4xl font-bold leading-tight tracking-tight">
-                        Discover all the projects we've worked on and the <span class="text-gray-dark">impact</span> we've made.
-                    </h2>
-                <!-- Project items will be dynamically inserted here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ CTA / CONTACT ============ -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="grid lg-grid-cols-2 gap-16 lg-gap-24">
-                <div>
-                    <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Start a
-                        Conversation</span>
-                    <h2 class="fade-up text-4xl font-bold leading-tight tracking-tight">
-                        Ready to build<br>something <span class="text-gray-dark">extraordinary?</span>
-                    </h2>
-                    <p class="fade-up text-gray-dark text-base leading-relaxed mt-6 max-w-40">
-                        Tell us about your challenge. We'll respond within 24 hours with initial thoughts on how we'd
-                        approach it.
-                    </p>
-
-                    <div class="fade-up contact-info mt-12">
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                                </svg>
-                            </div>
-                            <span class="contact-info-email">luvoxokiyana@gmail.com</span>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                                </svg>
-                            </div>
-                            <span class="contact-info-text">Remote-first · Global Operations</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fade-up">
-                    <form id="contactForm" class="form-group">
-                        <div class="form-row">
-                            <div>
-                                <label class="form-label">Name</label>
-                                <input type="text" name="name" required placeholder="Your name" class="form-input">
-                            </div>
-                            <div>
-                                <label class="form-label">Email</label>
-                                <input type="email" name="email" required placeholder="you@company.com"
-                                    class="form-input">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="form-label">Company</label>
-                            <input type="text" name="company" placeholder="Company name" class="form-input">
-                        </div>
-                        <div>
-                            <label class="form-label">Budget Range</label>
-                            <select name="budget" class="form-input form-select">
-                                <option value="">Select a range</option>
-                                <option value="25-50k">$25K — $50K</option>
-                                <option value="50-100k">$50K — $100K</option>
-                                <option value="100-250k">$100K — $250K</option>
-                                <option value="250k+">$250K+</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="form-label">Tell us about your project</label>
-                            <textarea name="message" rows="4" required
-                                placeholder="Describe your challenge, goals, and timeline..."
-                                class="form-input form-textarea"></textarea>
-                        </div>
-                        <button type="submit" id="submitBtn" class="btn-primary btn-primary-full">Send Message</button>
-                        <div id="formSuccess" class="form-success hidden">
-                            <p class="form-success-title">Message sent successfully.</p>
-                            <p class="form-success-sub">We'll be in touch within 24 hours.</p>
-                        </div>
-                    </form>
-                </div>
+                <p class="text-gray-dark mt-4 mb-8" style="font-size: 1.125rem; line-height: 1.7;">
+                    We're a small team of experienced engineers based in the Eastern Cape.
+                    Tell us about your challenge and we'll respond within 24 hours.
+                </p>
+                <a href="contact.html" class="btn-primary">Start a Conversation →</a>
             </div>
         </div>
     </section>
@@ -874,34 +598,28 @@
                         </svg>
                         <span class="nav-brand-text">LYNX</span>
                     </a>
-                    <p class="footer-description">Engineering next-generation technology solutions for ambitious
-                        organizations worldwide.</p>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Company</h4>
-                    <ul class="footer-list">
-                        <li><a href="/about" class="footer-link">About</a></li>
-                        <li><a href="#" class="footer-link">Careers</a></li>
-                        <li><a href="#" class="footer-link">Blog</a></li>
-                        <li><a href="/contact" class="footer-link">Contact</a></li>
-                    </ul>
+                    <p class="footer-description">Products &amp; services for local business. Based in the Eastern Cape,
+                        South Africa.</p>
                 </div>
                 <div>
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-list">
-                        <li><a href="services.html" class="footer-link">Computer Troubleshooting</a></li>
-                        <li><a href="services.html" class="footer-link">Web Development</a></li>
-                        <li><a href="services.html" class="footer-link">Data Engineering</a></li>
-                        <li><a href="services.html" class="footer-link">Full-Stack Development</a></li>
+                        <li><a href="troubleshoot.html" class="footer-link">LYNX Troubleshoot</a></li>
+                        <li><a href="fullstack.html" class="footer-link">LYNX Full-Stack</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-list">
+                        <li><a href="venu.html" class="footer-link">Venu</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="footer-heading">Connect</h4>
                     <ul class="footer-list">
-                        <li><a href="#" class="footer-link">LinkedIn</a></li>
-                        <li><a href="https://github.com/LYNX-Technolagy/LYNX" class="footer-link">GitHub</a></li>
-                        <li><a href="#" class="footer-link">X / Twitter</a></li>
-                        <li><a href="#" class="footer-link">Discord</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="https://github.com/LYNX-Technolagy" target="_blank" rel="noopener"
+                                class="footer-link">GitHub</a></li>
                     </ul>
                 </div>
             </div>
@@ -910,159 +628,92 @@
             <div class="footer-bottom">
                 <p class="footer-copy">&copy; 2026 LYNX Technology. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#" class="footer-link-sm">Privacy</a>
-                    <a href="#" class="footer-link-sm">Terms</a>
-                    <a href="#" class="footer-link-sm">Security</a>
+                    <a href="privacy.html" class="footer-link-sm">Privacy</a>
+                    <a href="terms.html" class="footer-link-sm">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
     <script>
-        // ——— Priority 1: Mouse-Tracking Glow (Desktop) ———
+        // ============================================================
+        // HERO INTERACTIONS
+        // ============================================================
+
+        // ——— Mouse-Tracking Glow ———
         const heroSection = document.getElementById('heroSection');
         const heroGlow = document.getElementById('heroGlow');
 
-        heroSection.addEventListener('mousemove', function (e) {
-            const rect = heroSection.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        if (heroSection && heroGlow) {
+            heroSection.addEventListener('mousemove', function (e) {
+                const rect = heroSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            heroGlow.style.left = x + 'px';
-            heroGlow.style.top = y + 'px';
-            heroGlow.classList.add('active');
-        });
+                heroGlow.style.left = x + 'px';
+                heroGlow.style.top = y + 'px';
+                heroGlow.classList.add('active');
+            });
 
-        heroSection.addEventListener('mouseleave', function () {
-            heroGlow.classList.remove('active');
-        });
+            heroSection.addEventListener('mouseleave', function () {
+                heroGlow.classList.remove('active');
+            });
+        }
 
         // ——— Mobile Touch Glow ———
         const heroGlowTouch = document.getElementById('heroGlowTouch');
 
-        heroSection.addEventListener('touchmove', function (e) {
-            const touch = e.touches[0];
-            const rect = heroSection.getBoundingClientRect();
-            const x = touch.clientX - rect.left;
-            const y = touch.clientY - rect.top;
-
-            heroGlowTouch.style.left = x + 'px';
-            heroGlowTouch.style.top = y + 'px';
-            heroGlowTouch.classList.add('active');
-        }, { passive: true });
-
-        heroSection.addEventListener('touchend', function () {
-            heroGlowTouch.classList.remove('active');
-        }, { passive: true });
-
-        // ——— Mobile Tilt (only on touch devices) ———
-        const heroTiltInner = document.getElementById('heroTiltInner');
-
-        // Only enable tilt on touch devices (mobile/tablet)
-        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        if (heroSection && heroGlowTouch) {
             heroSection.addEventListener('touchmove', function (e) {
                 const touch = e.touches[0];
                 const rect = heroSection.getBoundingClientRect();
                 const x = touch.clientX - rect.left;
                 const y = touch.clientY - rect.top;
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const maxTilt = 3;
-                const rotateY = ((x - centerX) / centerX) * maxTilt;
-                const rotateX = ((centerY - y) / centerY) * maxTilt;
-
-                heroTiltInner.style.setProperty('--rotateX', rotateX + 'deg');
-                heroTiltInner.style.setProperty('--rotateY', rotateY + 'deg');
+                heroGlowTouch.style.left = x + 'px';
+                heroGlowTouch.style.top = y + 'px';
+                heroGlowTouch.classList.add('active');
             }, { passive: true });
 
             heroSection.addEventListener('touchend', function () {
-                heroTiltInner.style.setProperty('--rotateX', '0deg');
-                heroTiltInner.style.setProperty('--rotateY', '0deg');
+                heroGlowTouch.classList.remove('active');
             }, { passive: true });
         }
 
-        // ——— Button Ripple Effect (Mobile) ———
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function (e) {
-                const rect = this.getBoundingClientRect();
-                const ripple = document.createElement('span');
-                ripple.className = 'ripple';
+        // ——— Mobile Tilt ———
+        const heroTiltInner = document.getElementById('heroTiltInner');
 
-                const size = Math.max(rect.width, rect.height);
-                ripple.style.width = ripple.style.height = size + 'px';
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            if (heroSection && heroTiltInner) {
+                heroSection.addEventListener('touchmove', function (e) {
+                    const touch = e.touches[0];
+                    const rect = heroSection.getBoundingClientRect();
+                    const x = touch.clientX - rect.left;
+                    const y = touch.clientY - rect.top;
 
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
 
-                this.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
+                    const maxTilt = 3;
+                    const rotateY = ((x - centerX) / centerX) * maxTilt;
+                    const rotateX = ((centerY - y) / centerY) * maxTilt;
 
-        // ——— Priority 3: Typewriter Subtitle ———
-        document.addEventListener('DOMContentLoaded', function () {
-            const textElement = document.getElementById('typewriterText');
-            const cursorElement = document.getElementById('typewriterCursor');
+                    heroTiltInner.style.setProperty('--rotateX', rotateX + 'deg');
+                    heroTiltInner.style.setProperty('--rotateY', rotateY + 'deg');
+                }, { passive: true });
 
-            const phrases = [
-                'We build infrastructure, intelligence, and interfaces that propel businesses beyond the edge of possibility.',
-                'We craft systems that scale, adapt, and anticipate what comes next.',
-                'From concept to deployment — we turn complexity into clarity.'
-            ];
-
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let isWaiting = false;
-
-            function typeEffect() {
-                const currentPhrase = phrases[phraseIndex];
-
-                if (isDeleting) {
-                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                let typingSpeed = isDeleting ? 30 : 50;
-
-                if (!isDeleting && charIndex === currentPhrase.length) {
-                    isWaiting = true;
-                    setTimeout(() => {
-                        isWaiting = false;
-                        isDeleting = true;
-                        typingSpeed = 20;
-                        typeEffect();
-                    }, 3000);
-                    return;
-                }
-
-                if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(() => {
-                        typeEffect();
-                    }, 500);
-                    return;
-                }
-
-                if (!isWaiting) {
-                    setTimeout(typeEffect, typingSpeed);
-                }
+                heroSection.addEventListener('touchend', function () {
+                    heroTiltInner.style.setProperty('--rotateX', '0deg');
+                    heroTiltInner.style.setProperty('--rotateY', '0deg');
+                }, { passive: true });
             }
+        }
 
-            setTimeout(typeEffect, 800);
-        });
-
-        // ——— Auto-split "Engineering" into individual letters ———
+        // ============================================================
+        // LETTER SPLIT ANIMATION
+        // ============================================================
         document.addEventListener('DOMContentLoaded', function () {
             const target = document.querySelector('.letter-animate');
             if (!target) return;
@@ -1087,7 +738,74 @@
                 target.appendChild(span);
             }
         });
+
+        // ============================================================
+        // FADE-UP ANIMATIONS
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-up');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Also handle any elements already visible
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 200);
+        });
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('open');
+                });
+
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function () {
+                        mobileMenu.classList.remove('open');
+                    });
+                });
+            }
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                let lastScroll = 0;
+                window.addEventListener('scroll', function () {
+                    const currentScroll = window.pageYOffset;
+                    if (currentScroll > 100) {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+                    } else {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.7)';
+                    }
+                    lastScroll = currentScroll;
+                }, { passive: true });
+            }
+        });
     </script>
+
 </body>
 
 </html>

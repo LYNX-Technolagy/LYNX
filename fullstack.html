@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LYNX Full-Stack — Web Development &amp; Apps</title>
+    <meta name="description" content="Custom web apps, websites, and templates built with modern tech. From MVPs to full-scale platforms — we deliver quality code for local businesses.">
+    <link rel="canonical" href="https://lynxtechnology.com/fullstack">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 60 Q50 20 85 60 Q50 80 15 60Z' stroke='white' stroke-width='4' fill='none'/%3E%3Ccircle cx='50' cy='55' r='10' stroke='white' stroke-width='3' fill='none'/%3E%3Ccircle cx='50' cy='55' r='3' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ===== Full-Stack Page Specific Styles ===== */
+
+        /* Service Hero */
+        .service-hero {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a3a3a3;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-hero h1 span {
+            color: #737373;
+        }
+
+        .service-hero p {
+            font-size: 1.125rem;
+            color: #a3a3a3;
+            max-width: 36rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .service-hero .hero-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .service-hero .hero-glow.active {
+            opacity: 1;
+        }
+
+        .service-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* What We Build Grid */
+        .build-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .build-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .build-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .build-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .build-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .build-card .icon {
+            font-size: 2rem;
+            color: #a3a3a3;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .build-card:hover .icon {
+            color: #fff;
+        }
+
+        .build-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .build-card p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-stack span {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #a3a3a3;
+            transition: all 0.3s;
+        }
+
+        .tech-stack span:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .showcase-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .showcase-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .showcase-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .showcase-card .image-wrapper {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #111;
+            position: relative;
+        }
+
+        .showcase-card .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: opacity 0.4s, transform 0.4s;
+        }
+
+        .showcase-card:hover .image-wrapper img {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .showcase-card .content {
+            padding: 1.5rem;
+        }
+
+        .showcase-card .content .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .showcase-card .content .tags span {
+            padding: 0.2rem 0.6rem;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 9999px;
+            font-size: 0.625rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #a3a3a3;
+        }
+
+        .showcase-card .content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-card .content p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .showcase-card .content .stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: #737373;
+        }
+
+        .showcase-card .content .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #a3a3a3;
+            text-decoration: none;
+            transition: color 0.3s;
+            margin-top: 0.75rem;
+        }
+
+        .showcase-card .content .link:hover {
+            color: #fff;
+        }
+
+        /* Loading State */
+        .loading-projects {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-projects p {
+            color: #737373;
+            margin-top: 1rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .process-step .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #a3a3a3;
+            margin: 0 auto 1rem;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .step-number {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .process-step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #a3a3a3;
+            max-width: 32rem;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-section .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-hero {
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+            }
+
+            .service-hero h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .service-hero p {
+                font-size: 1rem;
+            }
+
+            .build-card {
+                padding: 1.25rem;
+            }
+
+            .process-step {
+                padding: 1rem;
+            }
+
+            .showcase-card .content {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .tech-stack span {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.75rem;
+            }
+
+            .showcase-card .content h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="noise grid-bg">
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav id="navbar" class="nav-wrapper nav-blur border-bottom">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="/" class="nav-brand">
+                    <svg class="nav-brand-icon lynx-eye" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3"
+                            stroke-linejoin="round" />
+                        <circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5" />
+                        <circle cx="50" cy="55" r="3" fill="white" />
+                    </svg>
+                    <span class="nav-brand-text">LYNX</span>
+                </a>
+
+                <div class="nav-desktop">
+                    <a href="troubleshoot.html" class="nav-link">Troubleshoot</a>
+                    <a href="fullstack.html" class="nav-link active">Full-Stack</a>
+                    <a href="venu.html" class="nav-link">Venu</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
+                </div>
+
+                <button id="menuToggle" class="nav-menu-toggle" aria-label="Toggle menu">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line menu-line-short"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="troubleshoot.html" class="mobile-link">Troubleshoot</a>
+        <a href="fullstack.html" class="mobile-link active">Full-Stack</a>
+        <a href="venu.html" class="mobile-link">Venu</a>
+        <div class="glow-line mobile-divider"></div>
+        <a href="contact.html" class="btn-secondary mobile-cta">Contact</a>
+    </div>
+
+    <!-- ============ SERVICE HERO ============ -->
+    <section class="service-hero" id="serviceHero">
+        <div class="hero-glow" id="heroGlow"></div>
+        <div class="container">
+            <span class="badge fade-up">Web Development</span>
+            <h1 class="fade-up">
+                Full-Stack Development<br><span>for Modern Businesses</span>
+            </h1>
+            <p class="fade-up">
+                From custom web apps to beautiful websites — we build solutions that actually work for your business.
+                Modern tech, clean code, and designs that convert.
+            </p>
+            <div class="fade-up hero-actions" style="justify-content: flex-start;">
+                <a href="#projects" class="btn-primary">See Our Work →</a>
+                <a href="#contact" class="btn-secondary">Start a Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHAT WE BUILD ============ -->
+    <section class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">What We
+                    Build</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Solutions that<br><span class="text-gray-dark">drive results</span>
+                </h2>
+                <p class="fade-up text-gray-dark mt-4">
+                    We pick the right tools for your needs and deliver quality code.
+                </p>
+            </div>
+
+            <div class="build-grid">
+                <div class="fade-up build-card">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <h3>Custom Web Apps</h3>
+                    <p>React, Next.js, Node, Go — we pick the right tools for your needs.</p>
+                </div>
+                <div class="fade-up build-card">
+                    <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Web Templates</h3>
+                    <p>Beautiful, responsive templates for your business or product.</p>
+                </div>
+                <div class="fade-up build-card">
+                    <div class="icon"><i class="fas fa-cart-shopping"></i></div>
+                    <h3>E-Commerce</h3>
+                    <p>Online stores that convert. Custom or with proven platforms.</p>
+                </div>
+                <div class="fade-up build-card">
+                    <div class="icon"><i class="fas fa-mobile-screen"></i></div>
+                    <h3>Mobile-Ready</h3>
+                    <p>Responsive designs that work perfectly on all devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TECH STACK ============ -->
+    <section class="section-sm border-top border-bottom">
+        <div class="container">
+            <div class="text-center">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Our Tech
+                    Stack</span>
+                <h2 class="fade-up text-2xl font-bold tracking-tight">
+                    Modern tools for<br><span class="text-gray-dark">modern solutions</span>
+                </h2>
+                <div class="fade-up tech-stack">
+                    <span>React</span>
+                    <span>Next.js</span>
+                    <span>TypeScript</span>
+                    <span>Node.js</span>
+                    <span>Go</span>
+                    <span>Rust</span>
+                    <span>Python</span>
+                    <span>PostgreSQL</span>
+                    <span>MongoDB</span>
+                    <span>Redis</span>
+                    <span>Docker</span>
+                    <span>Kubernetes</span>
+                    <span>AWS</span>
+                    <span>GCP</span>
+                    <span>Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROJECT SHOWCASE ============ -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Our
+                    Work</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Projects that<br><span class="text-gray-dark">speak for themselves</span>
+                </h2>
+                <p class="fade-up text-gray-dark mt-4">
+                    Check out our open-source projects and templates on GitHub.
+                </p>
+            </div>
+
+            <div class="showcase-grid" id="projectsContainer">
+                <div class="loading-projects">
+                    <div class="spinner"></div>
+                    <p>Loading projects from GitHub...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">How We
+                    Work</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    A process<br><span class="text-gray-dark">you can trust</span>
+                </h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="fade-up process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>We understand your goals, requirements, and vision for the project.</p>
+                </div>
+                <div class="fade-up process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design</h3>
+                    <p>We create beautiful, functional UI/UX that your users will love.</p>
+                </div>
+                <div class="fade-up process-step">
+                    <div class="step-number">3</div>
+                    <h3>Build</h3>
+                    <p>We write clean, maintainable code with modern best practices.</p>
+                </div>
+                <div class="fade-up process-step">
+                    <div class="step-number">4</div>
+                    <h3>Launch</h3>
+                    <p>We deploy, hand over with training, and provide ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="fade-up">
+                <h2>Ready to Build Something Great?</h2>
+                <p>Tell us about your project and we'll respond within 24 hours with initial thoughts.</p>
+                <div class="btn-group">
+                    <a href="contact.html" class="btn-primary">Start Your Project</a>
+                    <a href="https://github.com/LYNX-Technolagy" target="_blank" rel="noopener" class="btn-secondary"><i
+                            class="fab fa-github"></i> View GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="nav-brand mb-6">
+                        <svg class="nav-brand-icon" viewBox="0 0 100 100" fill="none">
+                            <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3"
+                                stroke-linejoin="round" />
+                            <circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5" />
+                            <circle cx="50" cy="55" r="3" fill="white" />
+                        </svg>
+                        <span class="nav-brand-text">LYNX</span>
+                    </a>
+                    <p class="footer-description">Products &amp; services for local business. Based in the Eastern Cape,
+                        South Africa.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-list">
+                        <li><a href="troubleshoot.html" class="footer-link">LYNX Troubleshoot</a></li>
+                        <li><a href="fullstack.html" class="footer-link active">LYNX Full-Stack</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-list">
+                        <li><a href="venu.html" class="footer-link">Venu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-list">
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="https://github.com/LYNX-Technolagy" target="_blank" rel="noopener"
+                                class="footer-link">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glow-line footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 LYNX Technology. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="footer-link-sm">Privacy</a>
+                    <a href="terms.html" class="footer-link-sm">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        // ============================================================
+        // SERVICE HERO GLOW
+        // ============================================================
+        const serviceHero = document.getElementById('serviceHero');
+        const heroGlow = document.getElementById('heroGlow');
+
+        if (serviceHero && heroGlow) {
+            serviceHero.addEventListener('mousemove', function(e) {
+                const rect = serviceHero.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                heroGlow.style.left = x + 'px';
+                heroGlow.style.top = y + 'px';
+                heroGlow.classList.add('active');
+            });
+
+            serviceHero.addEventListener('mouseleave', function() {
+                heroGlow.classList.remove('active');
+            });
+        }
+
+        // ============================================================
+        // GITHUB API - FETCH PUBLIC REPOSITORIES
+        // ============================================================
+        const GITHUB_USERNAME = 'LYNX-Technolagy';
+
+        async function fetchGitHubProjects(username) {
+            try {
+                const response = await fetch(
+                    `https://api.github.com/users/${username}/repos?sort=updated&per_page=100&type=public`
+                );
+                if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching GitHub projects:', error);
+                return [];
+            }
+        }
+
+        function convertReposToProjects(repos) {
+            return repos
+                .filter(repo => !repo.fork && !repo.archived)
+                .map(repo => {
+                    const tags = repo.topics?.length > 0 ?
+                        repo.topics.slice(0, 4) :
+                        [repo.language || 'Code'].filter(Boolean);
+
+                    const title = repo.name
+                        .replace(/[-_]/g, ' ')
+                        .replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+
+                    return {
+                        id: repo.id,
+                        title: title,
+                        description: repo.description || 'No description provided.',
+                        image: `https://opengraph.githubassets.com/1/${repo.full_name}`,
+                        tags: tags,
+                        link: repo.html_url,
+                        stars: repo.stargazers_count,
+                        forks: repo.forks_count,
+                        language: repo.language
+                    };
+                });
+        }
+
+        function renderProjects(projects, containerId = 'projectsContainer') {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            if (projects.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:#737373;">
+                        <p>No public repositories found. Check back soon!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Show only first 6 projects
+            const limitedProjects = projects.slice(0, 6);
+
+            limitedProjects.forEach((project) => {
+                const card = document.createElement('div');
+                card.className = 'fade-up showcase-card';
+
+                const tagsHTML = project.tags.map(tag =>
+                    `<span>${tag}</span>`
+                ).join('');
+
+                card.innerHTML = `
+                    <div class="image-wrapper">
+                        <img src="${project.image}" alt="${project.title}" loading="lazy"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23111111%22/%3E%3Ctext x=%22300%22 y=%22200%22 text-anchor=%22middle%22 fill=%22%23525252%22 font-family=%22sans-serif%22 font-size=%2224%22%3E${project.title}%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="content">
+                        <div class="tags">${tagsHTML}</div>
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <div class="stats">
+                            ${project.language ? `<span>💻 ${project.language}</span>` : ''}
+                            ${project.stars ? `<span>⭐ ${project.stars}</span>` : ''}
+                            ${project.forks ? `<span>🔀 ${project.forks}</span>` : ''}
+                        </div>
+                        <a href="${project.link}" target="_blank" rel="noopener" class="link">View Repository →</a>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Trigger fade-up animation
+            setTimeout(() => {
+                document.querySelectorAll('.showcase-card.fade-up').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 100);
+        }
+
+        async function renderProjectsFromGitHub(username, containerId = 'projectsContainer') {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            try {
+                const repos = await fetchGitHubProjects(username);
+                if (!repos || repos.length === 0) {
+                    container.innerHTML = `
+                        <div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:#737373;">
+                            <p>No public repositories found.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const projects = convertReposToProjects(repos);
+                renderProjects(projects, containerId);
+
+            } catch (error) {
+                container.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:#737373;">
+                        <p>⚠️ Could not load projects. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================================
+        // FADE-UP ANIMATIONS
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-up');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 200);
+
+            // Load GitHub projects
+            renderProjectsFromGitHub(GITHUB_USERNAME);
+        });
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('open');
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('open');
+                    });
+                });
+            }
+
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 100) {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+                    } else {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.7)';
+                    }
+                }, { passive: true });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

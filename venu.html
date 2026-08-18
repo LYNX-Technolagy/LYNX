@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Venu — Where the night takes you</title>
+    <meta name="description" content="Venu is your nightlife social platform. Discover venues, share moments, and stay connected to your nightlife circle. TikTok-style feed, Instagram profiles, and Google Maps discovery.">
+    <link rel="canonical" href="https://lynxtechnology.com/venu">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 60 Q50 20 85 60 Q50 80 15 60Z' stroke='white' stroke-width='4' fill='none'/%3E%3Ccircle cx='50' cy='55' r='10' stroke='white' stroke-width='3' fill='none'/%3E%3Ccircle cx='50' cy='55' r='3' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ===== Venu Page Specific Styles ===== */
+
+        /* Hero */
+        .venu-hero {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .venu-hero .hero-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 200, 100, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+        }
+
+        .venu-hero .hero-glow.active {
+            opacity: 1;
+        }
+
+        .venu-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .venu-hero .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 200, 100, 0.1);
+            border: 1px solid rgba(255, 200, 100, 0.15);
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .venu-hero h1 {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .venu-hero h1 .highlight {
+            background: linear-gradient(135deg, #fff, #525252);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .venu-hero .tagline {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.05em;
+        }
+
+        .venu-hero p {
+            font-size: 1.125rem;
+            color: #a3a3a3;
+            max-width: 36rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .venu-hero .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Feature Tabs */
+        .feature-tabs {
+            margin-top: 3rem;
+        }
+
+        .feature-tabs .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 1rem;
+        }
+
+        .feature-tabs .tab-btn {
+            padding: 0.6rem 1.25rem;
+            background: transparent;
+            border: none;
+            border-radius: 9999px;
+            color: #737373;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .feature-tabs .tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-tabs .tab-btn.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-tabs .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .feature-tabs .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-tabs .tab-content .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .feature-tabs .tab-content .feature-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .feature-tabs .tab-content .feature-text h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-tabs .tab-content .feature-text p {
+            color: #a3a3a3;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tabs .tab-content .feature-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-tabs .tab-content .feature-text ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0;
+            color: #d4d4d4;
+            font-size: 0.875rem;
+        }
+
+        .feature-tabs .tab-content .feature-text ul li::before {
+            content: '✓';
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .feature-tabs .tab-content .feature-image {
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #111;
+            aspect-ratio: 9/16;
+            max-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .feature-tabs .tab-content .feature-image .placeholder {
+            color: #525252;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-tabs .tab-content .feature-image .placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: #fff;
+            opacity: 0.3;
+        }
+
+        /* Why Venu */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .why-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .why-card:hover {
+            border-color: rgba(255, 200, 100, 0.2);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .why-card .icon {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .why-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* Waitlist */
+        .waitlist-section {
+            background: linear-gradient(145deg, rgba(255, 200, 100, 0.03), rgba(255, 200, 100, 0.01));
+            border: 1px solid rgba(255, 200, 100, 0.08);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .waitlist-section h2 {
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.75rem;
+        }
+
+        .waitlist-section p {
+            color: #a3a3a3;
+            max-width: 32rem;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 480px) {
+            .waitlist-form {
+                flex-direction: row;
+            }
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.3s;
+            min-width: 0;
+        }
+
+        .waitlist-form input::placeholder {
+            color: #525252;
+        }
+
+        .waitlist-form input:focus {
+            border-color: rgba(255, 200, 100, 0.3);
+        }
+
+        .waitlist-form .btn-primary {
+            padding: 0.875rem 2rem;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .waitlist-form .btn-primary:hover {
+            background: #fff;
+            transform: scale(0.98);
+        }
+
+        .waitlist-form .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .waitlist-success {
+            display: none;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: rgba(74, 222, 128, 0.05);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            color: #4ade80;
+            max-width: 28rem;
+            margin: 0 auto;
+        }
+
+        .waitlist-success.show {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .venu-hero {
+                padding-top: 6rem;
+                padding-bottom: 2rem;
+                min-height: auto;
+            }
+
+            .venu-hero h1 {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+
+            .venu-hero .tagline {
+                font-size: 1.25rem;
+            }
+
+            .venu-hero p {
+                font-size: 1rem;
+            }
+
+            .feature-tabs .tabs {
+                gap: 0.3rem;
+            }
+
+            .feature-tabs .tab-btn {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .feature-tabs .tab-content .feature-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .waitlist-section {
+                padding: 2rem 1.25rem;
+            }
+
+            .waitlist-form {
+                flex-direction: column;
+            }
+
+            .waitlist-form input {
+                width: 100%;
+            }
+
+            .waitlist-form .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .venu-hero h1 {
+                font-size: 2rem;
+            }
+
+            .venu-hero .tagline {
+                font-size: 1rem;
+            }
+
+            .venu-hero .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .venu-hero .hero-actions .btn-primary,
+            .venu-hero .hero-actions .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .feature-tabs .tab-content .feature-image {
+                max-height: 300px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="noise grid-bg">
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav id="navbar" class="nav-wrapper nav-blur border-bottom">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="/" class="nav-brand">
+                    <svg class="nav-brand-icon lynx-eye" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3"
+                            stroke-linejoin="round" />
+                        <circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5" />
+                        <circle cx="50" cy="55" r="3" fill="white" />
+                    </svg>
+                    <span class="nav-brand-text">LYNX</span>
+                </a>
+
+                <div class="nav-desktop">
+                    <a href="troubleshoot.html" class="nav-link">Troubleshoot</a>
+                    <a href="fullstack.html" class="nav-link">Full-Stack</a>
+                    <a href="venu.html" class="nav-link active">Venu</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
+                </div>
+
+                <button id="menuToggle" class="nav-menu-toggle" aria-label="Toggle menu">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line menu-line-short"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="troubleshoot.html" class="mobile-link">Troubleshoot</a>
+        <a href="fullstack.html" class="mobile-link">Full-Stack</a>
+        <a href="venu.html" class="mobile-link active">Venu</a>
+        <div class="glow-line mobile-divider"></div>
+        <a href="contact.html" class="btn-secondary mobile-cta">Contact</a>
+    </div>
+
+    <!-- ============ VENU HERO ============ -->
+    <section class="venu-hero" id="venuHero">
+        <div class="hero-glow" id="heroGlow"></div>
+        <div class="container">
+            <span class="badge fade-up">Coming Soon</span>
+            <h1 class="fade-up">
+                <span class="highlight">Venu</span>
+            </h1>
+            <p class="fade-up tagline">"Where the night takes you."</p>
+            <p class="fade-up">
+                Your nightlife social platform. Discover where to go, share what happened,
+                and stay connected to your nightlife circle.
+            </p>
+            <div class="fade-up hero-actions">
+                <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
+                <a href="#features" class="btn-secondary">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="features" class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Features</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Everything you need<br><span class="text-gray-dark">for the night out</span>
+                </h2>
+            </div>
+
+            <div class="feature-tabs fade-up">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="feed">TikTok-Style Feed</button>
+                    <button class="tab-btn" data-tab="profiles">Instagram-Style Profiles</button>
+                    <button class="tab-btn" data-tab="discovery">Google Maps Discovery</button>
+                </div>
+
+                <!-- Tab 1: Feed -->
+                <div class="tab-content active" id="tab-feed">
+                    <div class="feature-grid">
+                        <div class="feature-text">
+                            <h3>TikTok-Style Feed</h3>
+                            <p>Full-screen photos and videos from people at clubs, bars, and events. Swipe to browse what's happening right now.</p>
+                            <ul>
+                                <li>Full-screen immersive experience</li>
+                                <li>See what's happening at venues near you</li>
+                                <li>Like, comment, and share moments</li>
+                                <li>Discover trending spots through real-time posts</li>
+                            </ul>
+                        </div>
+                        <div class="feature-image">
+                            <div class="placeholder">
+                                <i class="fas fa-mobile-screen"></i>
+                                <span>Feed Preview</span>
+                                <span style="display:block;font-size:0.75rem;margin-top:0.5rem;color:#737373;">Full-screen photos from the nightlife</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Profiles -->
+                <div class="tab-content" id="tab-profiles">
+                    <div class="feature-grid">
+                        <div class="feature-text">
+                            <h3>Instagram-Style Profiles</h3>
+                            <p>Build your nightlife identity. Follow friends, post photos, and create your own social presence in the nightlife scene.</p>
+                            <ul>
+                                <li>Create your nightlife persona</li>
+                                <li>Follow friends and local influencers</li>
+                                <li>Post photos from your nights out</li>
+                                <li>Build your social circle</li>
+                            </ul>
+                        </div>
+                        <div class="feature-image">
+                            <div class="placeholder">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Profile Preview</span>
+                                <span style="display:block;font-size:0.75rem;margin-top:0.5rem;color:#737373;">Your nightlife identity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Discovery -->
+                <div class="tab-content" id="tab-discovery">
+                    <div class="feature-grid">
+                        <div class="feature-text">
+                            <h3>Google Maps-Style Discovery</h3>
+                            <p>Find venues near you, see what's trending, and save your favorites. Never wonder where to go again.</p>
+                            <ul>
+                                <li>Discover venues near your location</li>
+                                <li>See what's trending and popular</li>
+                                <li>Save your favorite spots</li>
+                                <li>Get recommendations based on your vibe</li>
+                            </ul>
+                        </div>
+                        <div class="feature-image">
+                            <div class="placeholder">
+                                <i class="fas fa-map-location-dot"></i>
+                                <span>Discovery Preview</span>
+                                <span style="display:block;font-size:0.75rem;margin-top:0.5rem;color:#737373;">Find where to go tonight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY VENU ============ -->
+    <section class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Why Venu</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Built for the<br><span class="text-gray-dark">nightlife community</span>
+                </h2>
+            </div>
+
+            <div class="why-grid">
+                <div class="fade-up why-card">
+                    <span class="icon"><i class="fas fa-compass"></i></span>
+                    <h3>Discover Where to Go</h3>
+                    <p>Find the best clubs, bars, and events near you. See what's trending and where your friends are going.</p>
+                </div>
+                <div class="fade-up why-card">
+                    <span class="icon"><i class="fas fa-camera"></i></span>
+                    <h3>Share What Happened</h3>
+                    <p>Post photos and videos from your nights out. Relive the moments and share them with your circle.</p>
+                </div>
+                <div class="fade-up why-card">
+                    <span class="icon"><i class="fas fa-users"></i></span>
+                    <h3>Stay Connected</h3>
+                    <p>Build your nightlife network. Follow friends, discover new people, and stay in the loop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WAITLIST ============ -->
+    <section id="waitlist" class="section border-top">
+        <div class="container">
+            <div class="waitlist-section fade-up">
+                <h2>Coming Soon</h2>
+                <p>
+                    Venu is launching soon. Join the waitlist to get early access and be the
+                    first to know when we go live.
+                </p>
+
+                <form class="waitlist-form" id="waitlistForm">
+                    <input type="email" id="waitlistEmail" placeholder="Enter your email" required>
+                    <button type="submit" class="btn-primary" id="waitlistBtn">
+                        <span id="waitlistText">Join the Waitlist</span>
+                        <span id="waitlistLoading" style="display:none;">
+                            <i class="fas fa-spinner fa-spin"></i> Joining...
+                        </span>
+                    </button>
+                </form>
+
+                <div class="waitlist-success" id="waitlistSuccess">
+                    <i class="fas fa-check-circle" style="margin-right:0.5rem;"></i>
+                    You're on the list! We'll notify you when Venu launches.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section border-top">
+        <div class="container text-center">
+            <div class="fade-up" style="max-width: 40rem; margin: 0 auto;">
+                <h2 class="text-3xl font-bold tracking-tight">
+                    Ready to discover<br><span style="color:#fff;">where the night takes you?</span>
+                </h2>
+                <p class="text-gray-dark mt-4 mb-8" style="font-size: 1.125rem; line-height: 1.7;">
+                    Join the waitlist and be the first to experience Venu.
+                </p>
+                <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="nav-brand mb-6">
+                        <svg class="nav-brand-icon" viewBox="0 0 100 100" fill="none">
+                            <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3"
+                                stroke-linejoin="round" />
+                            <circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5" />
+                            <circle cx="50" cy="55" r="3" fill="white" />
+                        </svg>
+                        <span class="nav-brand-text">LYNX</span>
+                    </a>
+                    <p class="footer-description">Products &amp; services for local business. Based in the Eastern Cape,
+                        South Africa.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-list">
+                        <li><a href="troubleshoot.html" class="footer-link">LYNX Troubleshoot</a></li>
+                        <li><a href="fullstack.html" class="footer-link">LYNX Full-Stack</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-list">
+                        <li><a href="venu.html" class="footer-link active">Venu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-list">
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="https://github.com/LYNX-Technolagy" target="_blank" rel="noopener"
+                                class="footer-link">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glow-line footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 LYNX Technology. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link-sm">Privacy</a>
+                    <a href="#" class="footer-link-sm">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        // ============================================================
+        // VENU HERO GLOW
+        // ============================================================
+        const venuHero = document.getElementById('venuHero');
+        const heroGlow = document.getElementById('heroGlow');
+
+        if (venuHero && heroGlow) {
+            venuHero.addEventListener('mousemove', function(e) {
+                const rect = venuHero.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                heroGlow.style.left = x + 'px';
+                heroGlow.style.top = y + 'px';
+                heroGlow.classList.add('active');
+            });
+
+            venuHero.addEventListener('mouseleave', function() {
+                heroGlow.classList.remove('active');
+            });
+        }
+
+        // ============================================================
+        // FEATURE TABS
+        // ============================================================
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked tab
+                this.classList.add('active');
+                const tabId = this.dataset.tab;
+                document.getElementById('tab-' + tabId).classList.add('active');
+            });
+        });
+
+        // ============================================================
+        // WAITLIST FORM
+        // ============================================================
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('waitlistEmail');
+            const btn = document.getElementById('waitlistBtn');
+            const text = document.getElementById('waitlistText');
+            const loading = document.getElementById('waitlistLoading');
+            const success = document.getElementById('waitlistSuccess');
+
+            if (!email.value || !email.value.includes('@')) {
+                email.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+                return;
+            }
+
+            // Show loading
+            btn.disabled = true;
+            text.style.display = 'none';
+            loading.style.display = 'inline';
+
+            // Simulate submission
+            setTimeout(() => {
+                btn.disabled = false;
+                text.style.display = 'inline';
+                loading.style.display = 'none';
+                email.value = '';
+                success.classList.add('show');
+                this.querySelector('.btn-primary').style.display = 'none';
+            }, 1500);
+        });
+
+        // ============================================================
+        // FADE-UP ANIMATIONS
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-up');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 200);
+        });
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('open');
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('open');
+                    });
+                });
+            }
+
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 100) {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+                    } else {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.7)';
+                    }
+                }, { passive: true });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

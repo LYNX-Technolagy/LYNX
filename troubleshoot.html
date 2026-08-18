@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LYNX Troubleshoot — IT Support for Local Businesses</title>
+    <meta name="description" content="Fast, reliable IT support for local businesses in the Eastern Cape. Laptop repair, printer setup, network troubleshooting, virus removal — we fix it all.">
+    <link rel="canonical" href="https://lynxtechnology.com/troubleshoot">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 60 Q50 20 85 60 Q50 80 15 60Z' stroke='white' stroke-width='4' fill='none'/%3E%3Ccircle cx='50' cy='55' r='10' stroke='white' stroke-width='3' fill='none'/%3E%3Ccircle cx='50' cy='55' r='3' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ===== Troubleshoot Page Specific Styles ===== */
+
+        /* Service Hero */
+        .service-hero {
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a3a3a3;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-hero h1 span {
+            color: #737373;
+        }
+
+        .service-hero p {
+            font-size: 1.125rem;
+            color: #a3a3a3;
+            max-width: 36rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .service-hero .hero-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .service-hero .hero-glow.active {
+            opacity: 1;
+        }
+
+        .service-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* What We Fix Grid */
+        .fix-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .fix-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .fix-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .fix-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .fix-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .fix-card .icon {
+            font-size: 2rem;
+            color: #a3a3a3;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .fix-card:hover .icon {
+            color: #fff;
+        }
+
+        .fix-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .fix-card p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            background: #fff;
+            color: #000;
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card .price-sub {
+            font-size: 0.875rem;
+            color: #737373;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0;
+            font-size: 0.875rem;
+            color: #d4d4d4;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓';
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .pricing-card .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Why Choose Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .feature-item .icon {
+            font-size: 1.5rem;
+            color: #a3a3a3;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            counter-reset: step;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .process-step .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #a3a3a3;
+            margin: 0 auto 1rem;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover .step-number {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .process-step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.875rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #a3a3a3;
+            max-width: 32rem;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-section .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-hero {
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+            }
+
+            .service-hero h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            .service-hero p {
+                font-size: 1rem;
+            }
+
+            .pricing-card {
+                padding: 1.5rem;
+            }
+
+            .pricing-card .price {
+                font-size: 2rem;
+            }
+
+            .fix-card {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .pricing-card .price {
+                font-size: 1.75rem;
+            }
+
+            .process-step {
+                padding: 1rem;
+            }
+
+            .feature-item {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="noise grid-bg">
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav id="navbar" class="nav-wrapper nav-blur border-bottom">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="/" class="nav-brand">
+                    <svg class="nav-brand-icon lynx-eye" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3"
+                            stroke-linejoin="round" />
+                        <circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5" />
+                        <circle cx="50" cy="55" r="3" fill="white" />
+                    </svg>
+                    <span class="nav-brand-text">LYNX</span>
+                </a>
+
+                <div class="nav-desktop">
+                    <a href="troubleshoot.html" class="nav-link active">Troubleshoot</a>
+                    <a href="fullstack.html" class="nav-link">Full-Stack</a>
+                    <a href="venu.html" class="nav-link">Venu</a>
+                    <a href="contact.html" class="nav-cta">Contact</a>
+                </div>
+
+                <button id="menuToggle" class="nav-menu-toggle" aria-label="Toggle menu">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line menu-line-short"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a href="troubleshoot.html" class="mobile-link active">Troubleshoot</a>
+        <a href="fullstack.html" class="mobile-link">Full-Stack</a>
+        <a href="venu.html" class="mobile-link">Venu</a>
+        <div class="glow-line mobile-divider"></div>
+        <a href="contact.html" class="btn-secondary mobile-cta">Contact</a>
+    </div>
+
+    <!-- ============ SERVICE HERO ============ -->
+    <section class="service-hero" id="serviceHero">
+        <div class="hero-glow" id="heroGlow"></div>
+        <div class="container">
+            <span class="badge fade-up">IT Support</span>
+            <h1 class="fade-up">
+                Computer Troubleshooting<br><span>for Local Businesses</span>
+            </h1>
+            <p class="fade-up">
+                Fast, reliable IT support without the overhead of a full-time hire.
+                We fix laptops, printers, networks, and more — so you can focus on running your business.
+            </p>
+            <div class="fade-up hero-actions" style="justify-content: flex-start;">
+                <a href="#pricing" class="btn-primary">See Pricing →</a>
+                <a href="#contact" class="btn-secondary">Get Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHAT WE FIX ============ -->
+    <section class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">What We Fix</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    We solve<br><span class="text-gray-dark">real IT problems</span>
+                </h2>
+                <p class="fade-up text-gray-dark mt-4">
+                    No matter the issue, we'll diagnose and fix it quickly.
+                </p>
+            </div>
+
+            <div class="fix-grid">
+                <div class="fade-up fix-card">
+                    <div class="icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Hardware Repair</h3>
+                    <p>Laptops, desktops, monitors — we diagnose and fix hardware issues quickly.</p>
+                </div>
+                <div class="fade-up fix-card">
+                    <div class="icon"><i class="fas fa-print"></i></div>
+                    <h3>Printer Setup</h3>
+                    <p>Network printers, driver issues, wireless setup — we make printing work again.</p>
+                </div>
+                <div class="fade-up fix-card">
+                    <div class="icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Network Support</h3>
+                    <p>Wi-Fi issues, router setup, network troubleshooting for your office.</p>
+                </div>
+                <div class="fade-up fix-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Virus Removal</h3>
+                    <p>Malware, ransomware, spyware — we clean your systems and keep them safe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section id="pricing" class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Pricing</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Simple,<br><span class="text-gray-dark">transparent pricing</span>
+                </h2>
+                <p class="fade-up text-gray-dark mt-4">
+                    No hidden fees. No surprise bills. You know what you're paying upfront.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="fade-up pricing-card">
+                    <h3>Per Visit</h3>
+                    <div class="price">R500</div>
+                    <div class="price-sub">per session</div>
+                    <ul>
+                        <li>One-on-one support</li>
+                        <li>60-90 minute session</li>
+                        <li>Remote or on-site (Eastern Cape)</li>
+                        <li>Diagnosis &amp; fix included</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="contact.html" class="btn-secondary" style="width:100%;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="fade-up pricing-card featured">
+                    <span class="badge">Popular</span>
+                    <h3>Monthly Retainer</h3>
+                    <div class="price">R1,500</div>
+                    <div class="price-sub">per month</div>
+                    <ul>
+                        <li>Up to 4 support sessions</li>
+                        <li>Priority response (within 2 hours)</li>
+                        <li>Remote support included</li>
+                        <li>Free monthly system check</li>
+                        <li>20% off additional visits</li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="contact.html" class="btn-primary" style="width:100%;">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE LYNX ============ -->
+    <section class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">Why LYNX</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Why local businesses<br><span class="text-gray-dark">choose us</span>
+                </h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="fade-up feature-item">
+                    <span class="icon"><i class="fas fa-bolt"></i></span>
+                    <h3>Same-Day Response</h3>
+                    <p>We understand downtime costs money. We respond within 2 hours.</p>
+                </div>
+                <div class="fade-up feature-item">
+                    <span class="icon"><i class="fas fa-wallet"></i></span>
+                    <h3>Fixed Pricing</h3>
+                    <p>No surprise bills. You know what you're paying upfront. Always.</p>
+                </div>
+                <div class="fade-up feature-item">
+                    <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <h3>Eastern Cape Based</h3>
+                    <p>We're local. We understand your business context and challenges.</p>
+                </div>
+                <div class="fade-up feature-item">
+                    <span class="icon"><i class="fas fa-handshake"></i></span>
+                    <h3>Long-Term Support</h3>
+                    <p>We don't disappear after the fix. We're here for the long haul.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section border-top">
+        <div class="container">
+            <div class="text-center max-w-40 mx-auto">
+                <span class="fade-up block mb-6 text-sm uppercase font-medium text-gray-dark tracking-wider">How It Works</span>
+                <h2 class="fade-up text-3xl font-bold tracking-tight">
+                    Getting support is<br><span class="text-gray-dark">simple</span>
+                </h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="fade-up process-step">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>Reach out via phone, email, or our contact form. We'll get back to you within 2 hours.</p>
+                </div>
+                <div class="fade-up process-step">
+                    <div class="step-number">2</div>
+                    <h3>Describe the Issue</h3>
+                    <p>Tell us what's wrong. We'll diagnose remotely first to save you time.</p>
+                </div>
+                <div class="fade-up process-step">
+                    <div class="step-number">3</div>
+                    <h3>We Fix It</h3>
+                    <p>We visit your office or connect remotely. We fix the problem and test everything works.</p>
+                </div>
+                <div class="fade-up process-step">
+                    <div class="step-number">4</div>
+                    <h3>You Get Back to Work</h3>
+                    <p>Your systems are running smoothly. We're here if you need us again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="fade-up">
+                <h2>Ready to Get Your Systems Running Smoothly?</h2>
+                <p>Contact us today and we'll have your IT issues sorted in no time.</p>
+                <div class="btn-group">
+                    <a href="contact.html" class="btn-primary">Contact Us Now</a>
+                    <a href="tel:+27791234567" class="btn-secondary"><i class="fas fa-phone"></i> Call Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="nav-brand mb-6">
+                        <svg class="nav-brand-icon" viewBox="0 0 100 100" fill="none">
+                            <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="white" stroke-width="3"
+                                stroke-linejoin="round" />
+                            <circle cx="50" cy="55" r="10" stroke="white" stroke-width="2.5" />
+                            <circle cx="50" cy="55" r="3" fill="white" />
+                        </svg>
+                        <span class="nav-brand-text">LYNX</span>
+                    </a>
+                    <p class="footer-description">Products &amp; services for local business. Based in the Eastern Cape, South Africa.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-list">
+                        <li><a href="troubleshoot.html" class="footer-link active">LYNX Troubleshoot</a></li>
+                        <li><a href="fullstack.html" class="footer-link">LYNX Full-Stack</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-list">
+                        <li><a href="venu.html" class="footer-link">Venu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-list">
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="https://github.com/LYNX-Technolagy" target="_blank" rel="noopener" class="footer-link">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glow-line footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 LYNX Technology. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link-sm">Privacy</a>
+                    <a href="#" class="footer-link-sm">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        // ============================================================
+        // SERVICE HERO GLOW
+        // ============================================================
+        const serviceHero = document.getElementById('serviceHero');
+        const heroGlow = document.getElementById('heroGlow');
+
+        if (serviceHero && heroGlow) {
+            serviceHero.addEventListener('mousemove', function(e) {
+                const rect = serviceHero.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                heroGlow.style.left = x + 'px';
+                heroGlow.style.top = y + 'px';
+                heroGlow.classList.add('active');
+            });
+
+            serviceHero.addEventListener('mouseleave', function() {
+                heroGlow.classList.remove('active');
+            });
+        }
+
+        // ============================================================
+        // FADE-UP ANIMATIONS
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-up');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            setTimeout(() => {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 200);
+        });
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('open');
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('open');
+                    });
+                });
+            }
+
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 100) {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+                    } else {
+                        navbar.style.background = 'rgba(5, 5, 5, 0.7)';
+                    }
+                }, { passive: true });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
