@@ -1,0 +1,7 @@
+# 404
+/* /404.html 404
+
+# Redirects
+/contact-us /contact.html 301
+/it-support /troubleshoot.html 301
+/web-development /fullstack.html 301
