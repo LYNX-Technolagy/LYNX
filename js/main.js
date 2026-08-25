@@ -2,7 +2,7 @@
 // LYNX Technology — Centralized JavaScript
 // ============================================================
 
-(function() {
+(function () {
     'use strict';
 
     // ============================================================
@@ -44,7 +44,7 @@
         const mobileMenu = document.getElementById('mobileMenu');
 
         if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', function () {
                 const isOpen = mobileMenu.classList.toggle('open');
                 this.classList.toggle('open');
                 this.setAttribute('aria-expanded', isOpen);
@@ -53,7 +53,7 @@
 
             // Close on link click
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function () {
                     mobileMenu.classList.remove('open');
                     menuToggle.classList.remove('open');
                     menuToggle.setAttribute('aria-expanded', 'false');
@@ -62,7 +62,7 @@
             });
 
             // Close on Escape
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
                     mobileMenu.classList.remove('open');
                     menuToggle.classList.remove('open');
@@ -82,7 +82,7 @@
         const dropdownMenu = document.getElementById('productsDropdownMenu');
 
         if (dropdownBtn && dropdownMenu) {
-            dropdownBtn.addEventListener('click', function(e) {
+            dropdownBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const isOpen = dropdownMenu.classList.toggle('open');
                 this.classList.toggle('open');
@@ -90,7 +90,7 @@
             });
 
             // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
                     dropdownMenu.classList.remove('open');
                     dropdownBtn.classList.remove('open');
@@ -99,7 +99,7 @@
             });
 
             // Close on Escape
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && dropdownMenu.classList.contains('open')) {
                     dropdownMenu.classList.remove('open');
                     dropdownBtn.classList.remove('open');
@@ -113,7 +113,7 @@
         const mobileDropdownMenu = document.getElementById('mobileDropdownMenu');
 
         if (mobileDropdownBtn && mobileDropdownMenu) {
-            mobileDropdownBtn.addEventListener('click', function() {
+            mobileDropdownBtn.addEventListener('click', function () {
                 const isOpen = mobileDropdownMenu.classList.toggle('open');
                 this.classList.toggle('open');
                 this.setAttribute('aria-expanded', isOpen);
@@ -130,7 +130,7 @@
         const heroGlowTouch = document.getElementById('heroGlowTouch');
 
         if (heroSection && heroGlow) {
-            heroSection.addEventListener('mousemove', function(e) {
+            heroSection.addEventListener('mousemove', function (e) {
                 const rect = heroSection.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -139,13 +139,13 @@
                 heroGlow.classList.add('active');
             });
 
-            heroSection.addEventListener('mouseleave', function() {
+            heroSection.addEventListener('mouseleave', function () {
                 heroGlow.classList.remove('active');
             });
         }
 
         if (heroSection && heroGlowTouch) {
-            heroSection.addEventListener('touchmove', function(e) {
+            heroSection.addEventListener('touchmove', function (e) {
                 const touch = e.touches[0];
                 const rect = heroSection.getBoundingClientRect();
                 const x = touch.clientX - rect.left;
@@ -155,7 +155,7 @@
                 heroGlowTouch.classList.add('active');
             }, { passive: true });
 
-            heroSection.addEventListener('touchend', function() {
+            heroSection.addEventListener('touchend', function () {
                 heroGlowTouch.classList.remove('active');
             }, { passive: true });
         }
@@ -169,7 +169,7 @@
         const heroGlow = document.getElementById('heroGlow');
 
         if (serviceHero && heroGlow) {
-            serviceHero.addEventListener('mousemove', function(e) {
+            serviceHero.addEventListener('mousemove', function (e) {
                 const rect = serviceHero.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -179,7 +179,7 @@
                 heroGlow.classList.add('active');
             });
 
-            serviceHero.addEventListener('mouseleave', function() {
+            serviceHero.addEventListener('mouseleave', function () {
                 heroGlow.classList.remove('active');
             });
         }
@@ -193,7 +193,7 @@
         const heroGlow = document.getElementById('heroGlow');
 
         if (venuHero && heroGlow) {
-            venuHero.addEventListener('mousemove', function(e) {
+            venuHero.addEventListener('mousemove', function (e) {
                 const rect = venuHero.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -203,7 +203,7 @@
                 heroGlow.classList.add('active');
             });
 
-            venuHero.addEventListener('mouseleave', function() {
+            venuHero.addEventListener('mouseleave', function () {
                 heroGlow.classList.remove('active');
             });
         }
@@ -220,7 +220,7 @@
             if (heroSection && heroTiltInner) {
                 let tiltTimeout;
 
-                heroSection.addEventListener('touchmove', function(e) {
+                heroSection.addEventListener('touchmove', function (e) {
                     const touch = e.touches[0];
                     const rect = heroSection.getBoundingClientRect();
                     const x = touch.clientX - rect.left;
@@ -237,9 +237,9 @@
                     heroTiltInner.style.setProperty('--rotateY', rotateY + 'deg');
                 }, { passive: true });
 
-                heroSection.addEventListener('touchend', function() {
+                heroSection.addEventListener('touchend', function () {
                     clearTimeout(tiltTimeout);
-                    tiltTimeout = setTimeout(function() {
+                    tiltTimeout = setTimeout(function () {
                         heroTiltInner.style.setProperty('--rotateX', '0deg');
                         heroTiltInner.style.setProperty('--rotateY', '0deg');
                     }, 150);
@@ -283,7 +283,7 @@
         const btn = document.getElementById('backToTop');
         if (!btn) return;
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (window.pageYOffset > 400) {
                 btn.classList.add('visible');
             } else {
@@ -291,12 +291,12 @@
             }
         }, { passive: true });
 
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Keyboard support
-        btn.addEventListener('keydown', function(e) {
+        btn.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -314,7 +314,7 @@
         if (!tabBtns.length || !tabContents.length) return;
 
         tabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 // Remove active from all tabs
                 tabBtns.forEach(b => {
                     b.classList.remove('active');
@@ -338,7 +338,7 @@
         const form = document.getElementById('waitlistForm');
         if (!form) return;
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const email = document.getElementById('waitlistEmail');
@@ -372,7 +372,7 @@
         // Reset email border on input
         const emailInput = document.getElementById('waitlistEmail');
         if (emailInput) {
-            emailInput.addEventListener('input', function() {
+            emailInput.addEventListener('input', function () {
                 this.style.borderColor = '';
             });
         }
@@ -382,7 +382,56 @@
     // 12. GITHUB PROJECTS (Full-Stack page)
     // ============================================================
     // Default empty project list — override on Full-Stack page
-    let SELECTED_REPOS = [];
+    let SELECTED_REPOS = [
+        {
+            name: 'Huddle',
+            description: 'Find pickup games, tournaments, and leagues near you',
+            type: 'web-app',
+            tags: ['landing page', 'HTML', 'CSS'],
+            screenshot: 'assests/images/thumbnails/huddle-preview.png',
+            repoUrl: 'https://github.com/LYNX-Technolagy/huddle-landing-page',
+            demoUrl: 'https://joinhuddleup.netlify.app/',
+            stars: 0,
+            forks: 0,
+            language: 'HTML'
+        },
+        {
+            name: 'Daily Dose',
+            description: 'Education is for everyone',
+            type: 'template',
+            tags: ['ladning page', 'HTML', 'CSS'],
+            screenshot: '/assests/images/thumbnails/dailydose-preview.png',
+            repoUrl: 'https://github.com/LYNX-Technolagy/dailydose-landing',
+            demoUrl: 'https://lynx-technolagy.github.io/dailydose-landing/',
+            star: 0,
+            forks: 0,
+            language: 'HTML'
+        },
+        {
+            name: 'Fornello',
+            description: 'aesthetic Italian website template',
+            type: 'template',
+            tags: ['landing page', 'HTML', 'CSS'],
+            screenshot: '/assests/images/thumbnails/fornello-preview.png',
+            repoUrl: 'https://github.com/LYNX-Technolagy/italian-website-template',
+            demoUrl: 'https://lynx-technolagy.github.io/italian-website-template/',
+            stars: 0,
+            forks: 0,
+            language: 'HTML'
+        },
+        {
+            name: 'Smith and Associates',
+            description: 'An immersive web template that puts the client experience first.',
+            type: 'template',
+            screenshot: '/assests/images/thumbnails/smith-legal-preview.png',
+            repoUrl: 'https://github.com/luvoxokiyana/legal-firm-landing/',
+            demoUrl: 'https://luvoxokiyana.github.io/legal-firm-landing/',
+            stars: 0,
+            forks: 0,
+            language: 'HTML'
+        },
+
+    ];
 
     function setProjects(repos) {
         SELECTED_REPOS = repos || [];
@@ -487,7 +536,7 @@
         if (!buttons.length) return;
 
         buttons.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 buttons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
 
@@ -508,7 +557,7 @@
     // ============================================================
     // 13. INIT ALL — Run everything
     // ============================================================
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Core features (always run)
         initFadeUp();
         initNavigation();
