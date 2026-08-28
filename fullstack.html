@@ -2,14 +2,27 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGP777STR4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PGP777STR4');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LYNX Full-Stack — Web Development &amp; Apps</title>
     <meta name="description"
         content="Custom web apps, websites, and templates built with modern tech. From MVPs to full-scale platforms — we deliver quality code for local businesses.">
     <link rel="canonical" href="https://lynxtechnology.com/fullstack">
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 60 Q50 20 85 60 Q50 80 15 60Z' stroke='white' stroke-width='4' fill='none'/%3E%3Ccircle cx='50' cy='55' r='10' stroke='white' stroke-width='3' fill='none'/%3E%3Ccircle cx='50' cy='55' r='3' fill='white'/%3E%3C/svg%3E">
+   <!-- ===== FAVICON ===== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assests/icons/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assests/icons/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assests/icons/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assests/icons/favicon_io/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -525,10 +538,15 @@
                 <span class="arrow"><i class="fas fa-chevron-down"></i></span>
             </button>
             <div class="mobile-dropdown-menu" id="mobileDropdownMenu">
-                <a href="venu.html">
-                    Venu
-                    <span class="sub">Nightlife social platform</span>
-                </a>
+                <a href="https://joinhuddleup.netlify.app/" class="active">
+                                <span class="icon"><i class="fas fa-basketball"></i></span>
+                                <span class="label">
+                                    Huddle
+                                    <span class="sub">
+                                       Built for players who want to connect and compete.
+                                    </span>
+                                </span>
+                            </a>
                 <!-- Add more products here -->
                 <!--
                 <a href="product2.html">
@@ -741,7 +759,7 @@
                 <div>
                     <h4 class="footer-heading">Product</h4>
                     <ul class="footer-list">
-                        <li><a href="venu.html" class="footer-link">Venu</a></li>
+                        <li><a href="https://joinhuddleup.netlify.app" class="footer-link">Huddle</a></li>
                     </ul>
                 </div>
                 <div>
@@ -773,63 +791,63 @@
 
     <script src="js/main.js"></script>
     <script>
-    // Define your projects
-    const SELECTED_REPOS = [
-        {
-            name: 'Huddle',
-            description: 'Find pickup games, tournaments, and leagues near you',
-            type: 'web-app',
-            tags: ['landing page', 'HTML', 'CSS'],
-            screenshot: 'assests/images/thumbnails/huddle-preview.png',
-            repoUrl: 'https://github.com/LYNX-Technolagy/huddle-landing-page',
-            demoUrl: 'https://joinhuddleup.netlify.app/',
-            stars: 0,
-            forks: 0,
-            language: 'HTML'
-        },
-        {
-            name: 'Daily Dose',
-            description: 'Education is for everyone',
-            type: 'template',
-            tags: ['ladning page', 'HTML', 'CSS'],
-            screenshot: '/assests/images/thumbnails/dailydose-preview.png',
-            repoUrl: 'https://github.com/LYNX-Technolagy/dailydose-landing',
-            demoUrl: 'https://lynx-technolagy.github.io/dailydose-landing/',
-            star: 0,
-            forks: 0,
-            language: 'HTML'
-        },
-        {
-            name: 'Fornello',
-            description: 'aesthetic Italian website template',
-            type: 'template',
-            tags: ['landing page', 'HTML', 'CSS'],
-            screenshot: '/assests/images/thumbnails/fornello-preview.png',
-            repoUrl: 'https://github.com/LYNX-Technolagy/italian-website-template',
-            demoUrl: 'https://lynx-technolagy.github.io/italian-website-template/',
-            stars: 0,
-            forks: 0,
-            language: 'HTML'
-        },
-        {
-            name: 'Smith and Associates',
-            description: 'An immersive web template that puts the client experience first.',
-            type: 'template',
-            tags: ['template', 'HTML', 'CSS'],
-            screenshot: '/assests/images/thumbnails/smith-legal-preview.png',
-            repoUrl: 'https://github.com/luvoxokiyana/legal-firm-landing/',
-            demoUrl: 'https://luvoxokiyana.github.io/legal-firm-landing/',
-            stars: 0,
-            forks: 0,
-            language: 'HTML'
-        }
-    ];
+        // Define your projects
+        const SELECTED_REPOS = [
+            {
+                name: 'Huddle',
+                description: 'Find pickup games, tournaments, and leagues near you',
+                type: 'web-app',
+                tags: ['landing page', 'HTML', 'CSS'],
+                screenshot: 'assests/images/thumbnails/huddle-preview.png',
+                repoUrl: 'https://github.com/LYNX-Technolagy/huddle-landing-page',
+                demoUrl: 'https://joinhuddleup.netlify.app/',
+                stars: 0,
+                forks: 0,
+                language: 'HTML'
+            },
+            {
+                name: 'Daily Dose',
+                description: 'Education is for everyone',
+                type: 'template',
+                tags: ['ladning page', 'HTML', 'CSS'],
+                screenshot: '/assests/images/thumbnails/dailydose-preview.png',
+                repoUrl: 'https://github.com/LYNX-Technolagy/dailydose-landing',
+                demoUrl: 'https://lynx-technolagy.github.io/dailydose-landing/',
+                star: 0,
+                forks: 0,
+                language: 'HTML'
+            },
+            {
+                name: 'Fornello',
+                description: 'aesthetic Italian website template',
+                type: 'template',
+                tags: ['landing page', 'HTML', 'CSS'],
+                screenshot: '/assests/images/thumbnails/fornello-preview.png',
+                repoUrl: 'https://github.com/LYNX-Technolagy/italian-website-template',
+                demoUrl: 'https://lynx-technolagy.github.io/italian-website-template/',
+                stars: 0,
+                forks: 0,
+                language: 'HTML'
+            },
+            {
+                name: 'Smith and Associates',
+                description: 'An immersive web template that puts the client experience first.',
+                type: 'template',
+                tags: ['template', 'HTML', 'CSS'],
+                screenshot: '/assests/images/thumbnails/smith-legal-preview.png',
+                repoUrl: 'https://github.com/luvoxokiyana/legal-firm-landing/',
+                demoUrl: 'https://luvoxokiyana.github.io/legal-firm-landing/',
+                stars: 0,
+                forks: 0,
+                language: 'HTML'
+            }
+        ];
 
-    // Initialize projects when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-        LYNX.initProjects(SELECTED_REPOS);
-    });
-</script>
+        // Initialize projects when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            LYNX.initProjects(SELECTED_REPOS);
+        });
+    </script>
 
 </body>
 
