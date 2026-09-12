@@ -1,7 +1,9 @@
-# 404
-/* /404.html 404
-
 # Redirects
 /contact-us /contact.html 301
 /it-support /troubleshoot.html 301
 /web-development /fullstack.html 301
+/venu / 301
+/venu.html / 301
+
+# 404 fallback — must be last
+/* /404.html 404

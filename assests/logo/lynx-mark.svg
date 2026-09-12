@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="LYNX Technology">
+  <!-- Lynx eye mark — refreshed stroke weights for small-size legibility -->
+  <path d="M15 60 Q50 20 85 60 Q50 80 15 60Z" stroke="#0F5132" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="50" cy="55" r="10" stroke="#0F5132" stroke-width="5"/>
+  <circle cx="50" cy="55" r="3" fill="#0F5132"/>
+</svg>

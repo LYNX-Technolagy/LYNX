@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" fill="none" role="img" aria-label="LYNX Technology">
+  <!-- Lynx eye mark -->
+  <g>
+    <path d="M10 55 Q35 25 60 55 Q35 72 10 55Z" stroke="#0F5132" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="35" cy="52" r="7" stroke="#0F5132" stroke-width="4"/>
+    <circle cx="35" cy="52" r="2" fill="#0F5132"/>
+  </g>
+
+  <!-- Wordmark: "LYNX" — outlined paths, monospace approximation -->
+  <g fill="#0F0F0F" transform="translate(78, 30)">
+    <!-- L -->
+    <path d="M0 0h5v32h16v5H0V0z"/>
+
+    <!-- Y -->
+    <path d="M28 0h5l8 14 8-14h5l-11 19v18h-5V19L28 0z"/>
+
+    <!-- N -->
+    <path d="M62 0h5l17 28V0h5v37h-5L67 9v28h-5V0z"/>
+
+    <!-- X -->
+    <path d="M99 0h5l10 15L124 0h5l-12 18 13 19h-5l-11-15-11 15h-5l13-19L99 0z"/>
+  </g>
+</svg>

@@ -12,10 +12,7 @@
         <loc>https://lynxtech.netlify.app/fullstack</loc>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://lynxtech.netlify.app/venu</loc>
-        <priority>0.8</priority>
-    </url>
+
     <url>
         <loc>https://lynxtech.netlify.app/contact</loc>
         <priority>0.6</priority>
