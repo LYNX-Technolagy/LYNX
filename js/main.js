@@ -41,11 +41,34 @@
     // ============================================================
     var SELECTED_REPOS = [
         {
+            name: 'Korahs Krumbs',
+            description: 'This is a small bakery website, featuring a custom CMS and CRM. Users can place orders directly via the website, and the bakery can handle all the orders via the website',
+            type: 'web-app',
+            tags: ['Custom CMS & CRM', 'HTML', 'CSS'],
+            screenshot: '/assests/images/thumbnails/korahs-krumbs-preview.jpg',
+            demoUrl: 'https://korahskrumbs.netlify.app/',
+            stars: 0,
+            forks: 0,
+            language: 'JavaScript'
+        },
+        {
+          name: 'STUDIO ASCII',
+          description: 'STUDIO ASCII — a modern, mobile-first web template for creative studios. Built with vanilla HTML/CSS/JS, no build step, and a live ASCII-art image background rendered to canvas. Drag-and-drop deployable, sub-1MB, accessible, and fully documented for easy customisation.',
+          type: 'template',
+          tags: ['template', 'HTML', 'CSS', 'Custom Script'],
+          screenshot: '/assests/images/thumbnails/studio-ascii-preview.jpg',
+          repoUrl: 'https://github.com/LYNX-Technolagy/STUDIO-ACSII',
+          demoUrl: 'https://lynx-technolagy.github.io/STUDIO-ACSII/',
+          stars: 0,
+          forks: 0,
+          Langauge: 'HTML'
+        },
+        {
             name: 'Smith and Associates',
             description: 'An immersive web template that puts the client experience first.',
             type: 'template',
             tags: ['template', 'HTML', 'CSS'],
-            screenshot: 'assests/images/thumbnails/smith-legal-preview.png',
+            screenshot: '/assests/images/thumbnails/smith-legal-preview.jpg',
             repoUrl: 'https://github.com/luvoxokiyana/legal-firm-landing/',
             demoUrl: 'https://luvoxokiyana.github.io/legal-firm-landing/',
             stars: 0,
@@ -57,7 +80,7 @@
             description: 'Find pickup games, tournaments, and leagues near you.',
             type: 'web-app',
             tags: ['landing page', 'HTML', 'CSS'],
-            screenshot: 'assests/images/thumbnails/huddle-preview.png',
+            screenshot: '/assests/images/thumbnails/huddle-preview.jpg',
             repoUrl: 'https://github.com/LYNX-Technolagy/huddle-landing-page',
             demoUrl: 'https://joinhuddleup.netlify.app/',
             stars: 0,
@@ -69,7 +92,7 @@
             description: 'Education is for everyone.',
             type: 'template',
             tags: ['landing page', 'HTML', 'CSS'],
-            screenshot: 'assests/images/thumbnails/dailydose-preview.png',
+            screenshot: '/assests/images/thumbnails/dailydose-preview.jpg',
             repoUrl: 'https://github.com/LYNX-Technolagy/dailydose-landing',
             demoUrl: 'https://lynx-technolagy.github.io/dailydose-landing/',
             stars: 0,
@@ -81,25 +104,13 @@
             description: 'Aesthetic Italian restaurant website template.',
             type: 'template',
             tags: ['landing page', 'HTML', 'CSS'],
-            screenshot: 'assests/images/thumbnails/fornello-preview.png',
+            screenshot: '/assests/images/thumbnails/fornello-preview.jpg',
             repoUrl: 'https://github.com/LYNX-Technolagy/italian-website-template',
             demoUrl: 'https://lynx-technolagy.github.io/italian-website-template/',
             stars: 0,
             forks: 0,
             language: 'HTML'
         },
-        {
-            name: 'LN Xokiyana Attorneys Inc',
-            description: 'Client website — a law firm in the Eastern Cape.',
-            type: 'research',
-            tags: ['client work', 'HTML', 'CSS'],
-            screenshot: 'assests/images/thumbnails/LN_Xokiyana-preview.png',
-            repoUrl: '',
-            demoUrl: '',
-            stars: 0,
-            forks: 0,
-            language: 'HTML'
-        }
     ];
 
     function getPlaceholderImage(title) {
