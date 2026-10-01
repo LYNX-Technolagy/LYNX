@@ -41,6 +41,16 @@
     // ============================================================
     var SELECTED_REPOS = [
         {
+            name: 'Reseach Team Template',
+            description: 'A modern, mobile-first web template for research teams. Built with vanilla HTML/CSS/JS, no build step, and a live ASCII-art image background rendered to canvas. Drag-and-drop deployable, sub-1MB, accessible, and fully documented for easy customisation.',
+            type: 'template',
+            tags: ['template', 'HTML', 'CSS', 'Custom Script'],
+            screenshot: '/assests/images/thumbnails/research-team-preview.jpg',
+            demoUrl: 'https://lynx-technolagy.github.io/research-team-template/',
+            stars: 0,
+            forks: 0,
+        },
+        {
             name: 'Korahs Krumbs',
             description: 'This is a small bakery website, featuring a custom CMS and CRM. Users can place orders directly via the website, and the bakery can handle all the orders via the website',
             type: 'web-app',
