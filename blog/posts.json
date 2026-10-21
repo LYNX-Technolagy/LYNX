@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "laptop-repair-or-replacement",
+    "title": "How to tell if your laptop needs repair or replacement",
+    "metaDescription": "A slow laptop isn't always a dead laptop. How to diagnose whether a repair is worth it — and when replacing it is the honest answer.",
+    "date": "2026-10-21",
+    "category": "troubleshoot",
+    "excerpt": "A slow laptop isn't always a dead laptop. Here's how to diagnose whether a repair is worth it — and when replacing it is the honest answer.",
+    "featured": true,
+    "body": [
+      {
+        "type": "p",
+        "text": "A slow laptop is not automatically a broken laptop, and a broken laptop is not automatically a dead one. Most people bring a machine in expecting the worst, and most of the time it's a fixable problem — a failing drive, a clogged fan, or an operating system that just needs a clean install. If you're in the Eastern Cape and want a second opinion before you spend money on a new machine, [our IT support team](/troubleshoot) can diagnose it properly instead of guessing."
+      },
+      {
+        "type": "cta",
+        "heading": "Not sure which it is?",
+        "text": "LYNX offers fixed-price diagnostics across the Eastern Cape. You'll know the cost before we touch anything.",
+        "buttonText": "Book a diagnostic",
+        "buttonHref": "/contact"
+      },
+      {
+        "type": "h2",
+        "text": "Signs it's worth repairing"
+      },
+      {
+        "type": "p",
+        "text": "A repair makes sense when the cost is well under half the price of a comparable new machine, and when the rest of the hardware is still healthy."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "**It's slow, not dead.** A sluggish machine with a working screen and keyboard is almost always a software or storage problem.",
+          "**The fan is loud or the laptop is hot.** That's dust and dried thermal paste — a cheap, fast fix that buys years.",
+          "**It won't boot, but the drive spins up.** Often a corrupted OS or a failing drive. Both are replaceable.",
+          "**The battery dies fast.** Batteries are consumables. Replacing one on a good laptop is almost always worth it."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Signs it's time to replace"
+      },
+      {
+        "type": "p",
+        "text": "Replacement is the honest answer when the repair cost starts approaching the price of something newer and faster."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "**The motherboard has failed.** On older machines, motherboard replacement is often more expensive than the laptop is worth.",
+          "**The screen is cracked and the chassis is warped.** When two or three major components fail at once, you're rebuilding, not repairing.",
+          "**It's more than six or seven years old.** New low-end laptops now out-perform mid-range machines from a decade ago.",
+          "**It can't run the software you need.** Some hardware simply can't be upgraded to meet current requirements."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "The honest rule of thumb"
+      },
+      {
+        "type": "p",
+        "text": "If the repair quote is under half the price of a comparable replacement, repair it. If it's over, replace it. If it's somewhere in between, it depends on how much you like the machine and how soon you'd want a new one anyway."
+      },
+      {
+        "type": "p",
+        "text": "The one thing we'd always push back on is throwing a laptop away without a diagnosis. A fifteen-minute check-up costs a fraction of a new machine, and it's the only way to know which side of the line you're on. If you'd rather not guess, [see what a diagnostic visit covers](/troubleshoot) — or just [ask us directly](/contact)."
+      }
+    ]
+  }
+]

@@ -44,6 +44,23 @@
     </url>
 
     <!-- ========================================
+         BLOG
+         ======================================== -->
+    <url>
+        <loc>https://lynxtech.netlify.app/blog</loc>
+        <lastmod>2026-10-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://lynxtech.netlify.app/blog/post.html?slug=laptop-repair-or-replacement</loc>
+        <lastmod>2026-10-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- ========================================
          LEGAL
          ======================================== -->
     <url>
