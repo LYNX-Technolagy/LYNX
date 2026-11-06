@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — LYNX Technology</title>
+    
+    <!-- SEO Optimized Title & Meta -->
+    <title>LYNX Insights — IT Support & Web Development East London</title>
     <meta name="description"
-        content="Practical IT and web development advice for Eastern Cape businesses. Repair guides, pricing breakdowns, and honest answers from a local team.">
+        content="Practical IT support and web development insights for East London and Eastern Cape businesses. Repair guides, pricing breakdowns, and honest answers from a local team.">
     <link rel="canonical" href="https://lynxtech.netlify.app/blog">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lynxtech.netlify.app/blog">
-    <meta property="og:title" content="Blog — LYNX Technology">
+    <meta property="og:title" content="LYNX Insights — IT Support & Web Development East London">
     <meta property="og:description"
-        content="Practical IT and web development advice for Eastern Cape businesses.">
+        content="Practical IT support and web development insights for East London and Eastern Cape businesses.">
     <meta property="og:image" content="https://lynxtech.netlify.app/assests/images/og-image.jpg">
 
     <link rel="apple-touch-icon" sizes="180x180" href="../assests/icons/favicon_io/apple-touch-icon.png">
@@ -29,6 +31,25 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Blog Schema (Tells Google this is an insights hub) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "LYNX Insights",
+      "description": "Practical IT support and web development insights for East London and Eastern Cape businesses.",
+      "url": "https://lynxtech.netlify.app/blog",
+      "publisher": {
+        "@type": "Organization",
+        "name": "LYNX Technology",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lynxtech.netlify.app/assests/logo/lynx-mark.svg"
+        }
+      }
+    }
+    </script>
 
     <style>
         .post-grid {
@@ -161,9 +182,8 @@
                 <div class="nav-desktop">
                     <a href="/troubleshoot" class="nav-link">Troubleshoot</a>
                     <a href="/fullstack" class="nav-link">Full-Stack</a>
-                    <a href="/blog" class="nav-link active">Blog</a>
-                    <a href="https://joinhuddleup.netlify.app/" class="nav-link" target="_blank"
-                        rel="noopener noreferrer">Huddle</a>
+                    <a href="/ventures" class="nav-link">Ventures</a>
+                    <a href="/blog" class="nav-link active">Insights</a>
                     <a href="/contact" class="nav-cta">Contact</a>
                 </div>
 
@@ -178,7 +198,8 @@
             <div class="mobile-menu" id="mobileMenu">
                 <a href="/troubleshoot">Troubleshoot</a>
                 <a href="/fullstack">Full-Stack</a>
-                <a href="/blog">Blog</a>
+                <a href="/ventures">Ventures</a>
+                <a href="/blog">Insights</a>
                 <a href="https://joinhuddleup.netlify.app/" target="_blank" rel="noopener noreferrer">Huddle</a>
                 <a href="/contact" class="mobile-cta">Contact</a>
             </div>
@@ -188,13 +209,13 @@
     <!-- ============ PAGE HERO ============ -->
     <header class="page-hero">
         <div class="container">
-            <span class="eyebrow">Notes from the workshop</span>
+            <span class="eyebrow">LYNX Insights</span>
             <h1>
-                Practical advice,<br>
+                Practical insights,<br>
                 <span class="muted">no jargon.</span>
             </h1>
             <p>
-                Repair guides, pricing breakdowns, and honest answers for Eastern Cape
+                Repair guides, pricing breakdowns, and honest answers for East London and Eastern Cape
                 businesses — written by the people who actually do the work.
             </p>
         </div>
@@ -203,7 +224,7 @@
     <!-- ============ POST LIST (JS-rendered) ============ -->
     <section class="section border-top" aria-labelledby="posts-title">
         <div class="container">
-            <h2 id="posts-title" class="section-title">All posts</h2>
+            <h2 id="posts-title" class="section-title">All insights</h2>
 
             <div id="postsContainer" aria-live="polite">
                 <p class="blog-empty">Loading posts…</p>
@@ -218,8 +239,28 @@
                 <h2>All posts (plain list)</h2>
                 <ul>
                     <li>
-                        <a href="/blog/post.html?slug=laptop-repair-or-replacement">
+                        <a href="/blog/laptop-repair-or-replacement">
                             How to tell if your laptop needs repair or replacement
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/how-huddle-solved-pickup-sports">
+                            Case Study: How Huddle solved the pickup sports admin nightmare
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/it-support-cost-east-london">
+                            What IT support actually costs in East London
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/why-local-businesses-need-a-website">
+                            Why your East London business needs a website (not just Facebook)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/practical-ai-for-local-businesses">
+                            Practical AI for local businesses: What actually works in 2026
                         </a>
                     </li>
                 </ul>
@@ -261,7 +302,8 @@
                     <ul class="footer-list">
                         <li><a href="/troubleshoot">Troubleshoot</a></li>
                         <li><a href="/fullstack">Full-Stack</a></li>
-                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/ventures">Ventures</a></li>
+                        <li><a href="/blog">Insights</a></li>
                     </ul>
                 </div>
 
@@ -310,7 +352,8 @@
 
             function card(post) {
                 var a = document.createElement('a');
-                a.href = '/blog/post.html?slug=' + encodeURIComponent(post.slug);
+                // Point directly to the static HTML generated by the Node script
+                a.href = '/blog/' + post.slug;
                 a.className = 'post-card';
 
                 var meta = document.createElement('div');
@@ -362,7 +405,7 @@
                     if (!Array.isArray(posts) || posts.length === 0) {
                         var empty = document.createElement('p');
                         empty.className = 'blog-empty';
-                        empty.textContent = 'No posts yet. Check back soon.';
+                        empty.textContent = 'No insights yet. Check back soon.';
                         container.appendChild(empty);
                         return;
                     }
@@ -380,7 +423,7 @@
                     container.innerHTML = '';
                     var empty = document.createElement('p');
                     empty.className = 'blog-empty';
-                    empty.textContent = 'Posts are temporarily unavailable. The plain list below is still available.';
+                    empty.textContent = 'Insights are temporarily unavailable. The plain list below is still available.';
                     container.appendChild(empty);
                 });
         })();

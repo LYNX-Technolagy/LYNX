@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LYNX Full-Stack — Web Development & Apps for Eastern Cape</title>
+    
+    <!-- SEO Optimized Title & Meta -->
+    <title>Web Development & App Design East London — LYNX Full-Stack</title>
     <meta name="description"
-        content="Custom websites, web apps, and mobile apps for Eastern Cape businesses. Upfront pricing, honest timelines. Starter sites from R3,500. Monthly retainers from R2,800.">
+        content="Custom websites, web apps, and mobile apps for East London and Eastern Cape businesses. Upfront pricing, honest timelines. Starter sites from R3,500.">
     <link rel="canonical" href="https://lynxtech.netlify.app/fullstack">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lynxtech.netlify.app/fullstack">
-    <meta property="og:title" content="LYNX Full-Stack — Web Development & Apps for Eastern Cape">
+    <meta property="og:title" content="Web Development & App Design East London — LYNX Full-Stack">
     <meta property="og:description"
-        content="Custom websites, web apps, and mobile apps for Eastern Cape businesses. Upfront pricing, honest timelines.">
+        content="Custom websites, web apps, and mobile apps for East London and Eastern Cape businesses. Upfront pricing, honest timelines.">
     <meta property="og:image" content="https://lynxtech.netlify.app/assests/images/og-image.jpg">
 
     <link rel="apple-touch-icon" sizes="180x180" href="assests/icons/favicon_io/apple-touch-icon.png">
@@ -29,6 +31,49 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Service Schema (Tells Google exactly what you sell) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Development and App Design",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "LYNX Technology",
+        "image": "https://lynxtech.netlify.app/assests/logo/lynx-mark.svg",
+        "url": "https://lynxtech.netlify.app/"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Eastern Cape"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Site"
+            },
+            "price": "3500",
+            "priceCurrency": "ZAR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business Retainer"
+            },
+            "price": "2800",
+            "priceCurrency": "ZAR"
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -45,9 +90,8 @@
                 <div class="nav-desktop">
                     <a href="/troubleshoot" class="nav-link">Troubleshoot</a>
                     <a href="/fullstack" class="nav-link active">Full-Stack</a>
+                    <a href="/ventures" class="nav-link">Ventures</a>
                     <a href="/blog" class="nav-link">Blog</a>
-                    <a href="https://joinhuddleup.netlify.app/" class="nav-link" target="_blank"
-                        rel="noopener noreferrer">Huddle</a>
                     <a href="/contact" class="nav-cta">Contact</a>
                 </div>
 
@@ -62,6 +106,7 @@
             <div class="mobile-menu" id="mobileMenu">
                 <a href="/troubleshoot">Troubleshoot</a>
                 <a href="/fullstack">Full-Stack</a>
+                <a href="/ventures">Ventures</a>
                 <a href="/blog">Blog</a>
                 <a href="https://joinhuddleup.netlify.app/" target="_blank" rel="noopener noreferrer">Huddle</a>
                 <a href="/contact" class="mobile-cta">Contact</a>
@@ -73,12 +118,13 @@
     <header class="page-hero">
         <div class="container">
             <span class="eyebrow">Web & App Development</span>
+            <!-- SEO Optimized H1 -->
             <h1>
-                Websites and apps<br>
-                <span class="muted">built for real businesses.</span>
+                Web Development in the Eastern Cape<br>
+                <span class="muted">Built for real businesses.</span>
             </h1>
             <p>
-                From a simple landing page to a full internal system — we build things that
+                From a simple landing page in East London to a full internal system — we build things that
                 actually work, price them honestly, and support them after launch.
             </p>
             <div class="hero-actions">
@@ -126,6 +172,12 @@
                     <p>Online stores that actually convert — simple, fast, and easy to manage.</p>
                 </div>
             </div>
+
+            <!-- Cross-reference to Ventures -->
+            <p style="text-align: center; margin-top: 3rem; font-size: 0.95rem; color: var(--ink-soft);">
+                Curious what we build for ourselves? 
+                <a href="/ventures" style="color: var(--forest); text-decoration: underline; text-underline-offset: 2px;">Explore LYNX Ventures</a>
+            </p>
         </div>
     </section>
 
@@ -314,6 +366,7 @@
                     <ul class="footer-list">
                         <li><a href="/troubleshoot">Troubleshoot</a></li>
                         <li><a href="/fullstack">Full-Stack</a></li>
+                        <li><a href="/ventures">Ventures</a></li>
                         <li><a href="/blog">Blog</a></li>
                     </ul>
                 </div>

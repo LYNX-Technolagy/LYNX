@@ -10,7 +10,7 @@
     "body": [
       {
         "type": "p",
-        "text": "A slow laptop is not automatically a broken laptop, and a broken laptop is not automatically a dead one. Most people bring a machine in expecting the worst, and most of the time it's a fixable problem — a failing drive, a clogged fan, or an operating system that just needs a clean install. If you're in the Eastern Cape and want a second opinion before you spend money on a new machine, [our IT support team](/troubleshoot) can diagnose it properly instead of guessing."
+        "text": "A slow laptop is not automatically a broken laptop, and a broken laptop is not automatically a dead one. Most people bring a machine in expecting the worst, and most of the time it's a fixable problem — a failing drive, a clogged fan, or an operating system that just needs a clean install. If you're in East London and want a second opinion before you spend money on a new machine, [our IT support team](/troubleshoot) can diagnose it properly instead of guessing."
       },
       {
         "type": "cta",
@@ -64,6 +64,258 @@
       {
         "type": "p",
         "text": "The one thing we'd always push back on is throwing a laptop away without a diagnosis. A fifteen-minute check-up costs a fraction of a new machine, and it's the only way to know which side of the line you're on. If you'd rather not guess, [see what a diagnostic visit covers](/troubleshoot) — or just [ask us directly](/contact)."
+      }
+    ]
+  },
+  {
+    "slug": "how-huddle-solved-pickup-sports",
+    "title": "Case Study: How Huddle solved the pickup sports admin nightmare",
+    "metaDescription": "How we built Huddle, a React Native app that connects local sports players and eliminates the WhatsApp group chaos.",
+    "date": "2026-10-25",
+    "category": "fullstack",
+    "excerpt": "Building a sports app isn't about the code. It's about solving the chaos of WhatsApp groups, dropped players, and last-minute cancellations. Here's how we built Huddle.",
+    "featured": false,
+    "body": [
+      {
+        "type": "p",
+        "text": "If you've ever tried to organise a casual game of basketball or football, you know the pain. Someone creates a WhatsApp group. Someone else suggests a time. People drop out. The location changes. Half the group doesn't see the message. By the time you actually play, you're exhausted from the admin, not the sport."
+      },
+      {
+        "type": "p",
+        "text": "We built **Huddle** to fix this. It's a pickup sports discovery app that connects players with local games happening right now, taking the admin out of organising and putting the focus back on playing. You can [try the Beta here](https://joinhuddleup.netlify.app/)."
+      },
+      {
+        "type": "cta",
+        "heading": "Want an app built?",
+        "text": "LYNX doesn't just build for clients. We build our own products. If you have an idea that needs solving, let's talk.",
+        "buttonText": "View our development services",
+        "buttonHref": "/fullstack"
+      },
+      {
+        "type": "h2",
+        "text": "The Problem"
+      },
+      {
+        "type": "p",
+        "text": "Before writing a single line of code, we interviewed local players in East London. The feedback was consistent: the admin was killing the fun. People wanted to play, but they didn't want to be the 'organiser' who had to chase 15 people for confirmation."
+      },
+      {
+        "type": "h2",
+        "text": "The Solution"
+      },
+      {
+        "type": "p",
+        "text": "We built Huddle using **React Native** for a single codebase that runs on both iOS and Android. The app uses localised discovery to show you games happening near you, complete with skill levels, player counts, and real-time confirmation. We added an anime/manga-inspired visual identity to break away from the sterile, corporate look of most fitness apps."
+      },
+      {
+        "type": "h3",
+        "text": "The Tech Stack"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "**Frontend:** React Native (iOS & Android)",
+          "**Backend:** Supabase for real-time database and auth",
+          "**Design:** Custom manga-inspired UI/UX"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "The Result"
+      },
+      {
+        "type": "p",
+        "text": "Huddle is currently live in Beta 1. The feedback has been incredible — players are finding games they never knew existed, and organisers are spending less time chasing confirmations and more time playing. This is the level of quality we bring to every client project at [LYNX Full-Stack](/fullstack)."
+      }
+    ]
+  },
+  {
+    "slug": "it-support-cost-east-london",
+    "title": "What IT support actually costs in East London",
+    "metaDescription": "A transparent breakdown of IT support pricing in East London and the Eastern Cape. What you should pay for a visit, a retainer, and emergency support.",
+    "date": "2026-11-02",
+    "category": "troubleshoot",
+    "excerpt": "Most IT companies hide their pricing. We don't. Here's exactly what you should expect to pay for IT support in East London, and what you actually get for the money.",
+    "featured": false,
+    "body": [
+      {
+        "type": "p",
+        "text": "If you call an IT support company in East London, the first question they usually ask is, 'What's your budget?' That's a red flag. You shouldn't have to bid for a service like a broken printer or a slow server. You need to know the price upfront."
+      },
+      {
+        "type": "p",
+        "text": "At LYNX, we publish our pricing. Here is a breakdown of [our IT support](/troubleshoot) costs, and what you actually get for the money."
+      },
+      {
+        "type": "cta",
+        "heading": "Need a quote for your business?",
+        "text": "Tell us what's broken. We'll give you a fixed price before we touch anything.",
+        "buttonText": "Contact us now",
+        "buttonHref": "/contact"
+      },
+      {
+        "type": "h2",
+        "text": "Pay As You Go: R550 per visit"
+      },
+      {
+        "type": "p",
+        "text": "This is for a one-off support session (60–90 minutes). It includes diagnosis and the fix, whether remote or on-site in East London. It's perfect if you just need a printer set up or a virus removed once."
+      },
+      {
+        "type": "h2",
+        "text": "Starter Retainer: R1,350 per month"
+      },
+      {
+        "type": "p",
+        "text": "If your business relies on computers, you need priority. The Starter Retainer gives you up to 3 support sessions per month, priority response (within 2 hours), and a free monthly system check. It's cheaper than paying for 3 visits individually."
+      },
+      {
+        "type": "h2",
+        "text": "Business Retainer: R2,200 per month"
+      },
+      {
+        "type": "p",
+        "text": "This is for businesses with multiple machines and a higher risk of downtime. You get up to 6 support sessions, priority response within 1 hour, and a dedicated support contact. If you have 5+ employees, this is almost always the right plan."
+      },
+      {
+        "type": "h2",
+        "text": "The hidden costs to watch out for"
+      },
+      {
+        "type": "p",
+        "text": "When comparing IT companies in East London, watch out for 'call-out fees.' Some companies charge R500 just to arrive, before they even diagnose the issue. Our prices are fixed. You pay R550 for the session, whether it takes 20 minutes or 90."
+      },
+      {
+        "type": "p",
+        "text": "If you want an honest breakdown of your IT needs, [reach out to us](/contact)."
+      }
+    ]
+  },
+  {
+    "slug": "why-local-businesses-need-a-website",
+    "title": "Why your East London business needs a website (not just Facebook)",
+    "metaDescription": "Facebook pages are great for updates, but they don't replace a website. Here's why local businesses in East London need a proper website to grow.",
+    "date": "2026-11-08",
+    "category": "fullstack",
+    "excerpt": "A Facebook page is a rented storefront. A website is your own property. Here's why local businesses need both, and why relying solely on social media is hurting your growth.",
+    "featured": false,
+    "body": [
+      {
+        "type": "p",
+        "text": "A lot of local businesses in East London run entirely off Facebook and WhatsApp. And it makes sense — it's free, it's easy, and everyone has an account. But relying solely on social media is like building your business on rented land. You don't own it."
+      },
+      {
+        "type": "p",
+        "text": "At [LYNX Full-Stack](/fullstack), we build websites for local businesses. Here is why a Facebook page alone isn't enough."
+      },
+      {
+        "type": "cta",
+        "heading": "Need a website?",
+        "text": "We build clean, fast, mobile-first websites for East London businesses. Starter sites from R3,500.",
+        "buttonText": "See pricing",
+        "buttonHref": "/fullstack#pricing"
+      },
+      {
+        "type": "h2",
+        "text": "1. Social media is rented land"
+      },
+      {
+        "type": "p",
+        "text": "If Facebook changes its algorithm tomorrow, your reach could drop to zero. If your account gets hacked or suspended, you lose contact with every customer. A website is yours. You control it."
+      },
+      {
+        "type": "h2",
+        "text": "2. Google doesn't rank Facebook pages"
+      },
+      {
+        "type": "p",
+        "text": "When someone in East London searches for 'plumber near me' or 'web designer East London', Google prioritises websites. Facebook pages are often buried. If you don't have a website, you're invisible to the most important search engine in the world."
+      },
+      {
+        "type": "h2",
+        "text": "3. Professionalism and trust"
+      },
+      {
+        "type": "p",
+        "text": "A clean, well-designed website tells a customer that you are established and professional. It gives you a place to showcase your work, your team, and your story without being squeezed into a feed. Learn more about [why our clients choose us](/about)."
+      },
+      {
+        "type": "h2",
+        "text": "4. You own the customer relationship"
+      },
+      {
+        "type": "p",
+        "text": "A website lets you capture email addresses, run contact forms, and own the data. Social media platforms keep that data. When you own the channel, you build a long-term asset."
+      },
+      {
+        "type": "p",
+        "text": "If you've been running your business on Facebook alone, it's time to upgrade. [Get a free quote](/contact) from LYNX today."
+      }
+    ]
+  },
+  {
+    "slug": "practical-ai-for-local-businesses",
+    "title": "Practical AI for local businesses: What actually works in 2026",
+    "metaDescription": "Stop worrying about AI taking over. Here is how small businesses in the Eastern Cape are using AI right now to save time and win more work.",
+    "date": "2026-11-12",
+    "category": "fullstack",
+    "excerpt": "The AI hype cycle is exhausting. But there are genuinely useful, practical ways local businesses in East London are using AI right now to automate admin and save hours every week.",
+    "featured": false,
+    "body": [
+      {
+        "type": "p",
+        "text": "If you read the news, you'd think AI is either going to solve all our problems or end civilization. For a local business owner in East London, neither of those things is particularly useful. What's useful is knowing how to use AI to save an hour a day on admin."
+      },
+      {
+        "type": "p",
+        "text": "Here is what's actually working for our clients right now."
+      },
+      {
+        "type": "cta",
+        "heading": "Ready for a tech upgrade?",
+        "text": "We help local businesses figure out the right tools. Sometimes it's a simple automation, sometimes it's a custom web app.",
+        "buttonText": "Talk to us",
+        "buttonHref": "/contact"
+      },
+      {
+        "type": "h2",
+        "text": "1. Drafting emails and proposals"
+      },
+      {
+        "type": "p",
+        "text": "Tools like ChatGPT or Claude are surprisingly good at drafting the first version of a quote, a proposal, or a difficult email. It's not about letting the AI write it — it's about giving you a starting point to edit, which cuts writing time in half."
+      },
+      {
+        "type": "h2",
+        "text": "2. Customer service bots (that don't suck)"
+      },
+      {
+        "type": "p",
+        "text": "If your business gets the same 10 questions every day, a simple AI chatbot on your website can answer them. We build these using tools like Voiceflow or simple API integrations. It's not about replacing a human — it's about freeing up your receptionist to handle the complex questions."
+      },
+      {
+        "type": "h2",
+        "text": "3. Image editing"
+      },
+      {
+        "type": "p",
+        "text": "If you sell products online, AI photo editing tools (like removing backgrounds or enhancing lighting) can save hours on product photography. It's no longer necessary to hire a photographer for every single item."
+      },
+      {
+        "type": "h2",
+        "text": "4. Automating admin"
+      },
+      {
+        "type": "p",
+        "text": "Tools like Zapier or Make can connect your inbox to your CRM or spreadsheet. When a quote is accepted, it automatically creates an invoice. This is AI in the background, saving you time without you having to think about it."
+      },
+      {
+        "type": "h2",
+        "text": "What AI can't do"
+      },
+      {
+        "type": "p",
+        "text": "AI cannot replace a local relationship. It cannot shake a client's hand or fix a laptop. But it can give you back the time to do those things. That's the real value for a small business."
       }
     ]
   }
