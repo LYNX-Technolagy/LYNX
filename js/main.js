@@ -41,6 +41,15 @@
     // ============================================================
     var SELECTED_REPOS = [
         {
+            name: 'AutoMailers',
+            description: 'A simple, lightweight, and customizable email automation tool built with Node.js and Express. It allows users to send automated emails based on predefined triggers and schedules. Perfect for businesses and developers looking to streamline their email communication.',
+            type: 'web-app',
+            tags: ['Node.js', 'Express', 'Email Automation'],
+            screenshot: '/assests/images/thumbnails/automailers-preview.jpeg',
+            repoUrl: 'https://github.com/LYNX-Technolagy/AutoMailers',
+            demoUrl: 'https://automailers.netlify.app',
+        },
+        {
             name: 'Reseach Team Template',
             description: 'A modern, mobile-first web template for research teams. Built with vanilla HTML/CSS/JS, no build step, and a live ASCII-art image background rendered to canvas. Drag-and-drop deployable, sub-1MB, accessible, and fully documented for easy customisation.',
             type: 'template',
