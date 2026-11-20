@@ -7,7 +7,7 @@
          ======================================== -->
     <url>
         <loc>https://lynxtech.netlify.app/</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -21,14 +21,14 @@
          ======================================== -->
     <url>
         <loc>https://lynxtech.netlify.app/troubleshoot</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://lynxtech.netlify.app/fullstack</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -38,7 +38,7 @@
          ======================================== -->
     <url>
         <loc>https://lynxtech.netlify.app/ventures</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -48,7 +48,7 @@
          ======================================== -->
     <url>
         <loc>https://lynxtech.netlify.app/contact</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -58,7 +58,7 @@
          ======================================== -->
     <url>
         <loc>https://lynxtech.netlify.app/blog</loc>
-        <lastmod>2026-11-12</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -102,18 +102,49 @@
     </url>
 
     <!-- ========================================
+         NEW ARTICLES
+         ======================================== -->
+    <url>
+        <loc>https://lynxtech.netlify.app/blog/it-support-east-london-small-business</loc>
+        <lastmod>2026-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://lynxtech.netlify.app/blog/business-website-cost-south-africa</loc>
+        <lastmod>2026-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://lynxtech.netlify.app/blog/local-seo-south-africa-small-business</loc>
+        <lastmod>2026-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://lynxtech.netlify.app/blog/remote-vs-onsite-it-support-south-africa</loc>
+        <lastmod>2026-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ========================================
          LEGAL
          ======================================== -->
     <url>
         <loc>https://lynxtech.netlify.app/privacy</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://lynxtech.netlify.app/terms</loc>
-        <lastmod>2026-10-01</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
