@@ -318,5 +318,45 @@
         "text": "AI cannot replace a local relationship. It cannot shake a client's hand or fix a laptop. But it can give you back the time to do those things. That's the real value for a small business."
       }
     ]
+  },
+  {
+    "slug": "it-support-east-london-small-business",
+    "title": "IT Support in East London: What Small Businesses Should Expect",
+    "metaDescription": "A practical guide to IT support for East London businesses, from laptop and network repairs to remote help, clear pricing and ongoing support.",
+    "date": "2026-11-20",
+    "category": "troubleshoot",
+    "excerpt": "From a failing laptop to unreliable Wi-Fi, here is what dependable IT support should look like for small businesses in East London.",
+    "featured": false,
+    "body": []
+  },
+  {
+    "slug": "business-website-cost-south-africa",
+    "title": "How Much Does a Business Website Cost in South Africa?",
+    "metaDescription": "Understand what affects business website costs in South Africa, what to budget for, and how to compare quotes without paying for features you do not need.",
+    "date": "2026-11-20",
+    "category": "fullstack",
+    "excerpt": "Website quotes vary for a reason. Learn which features affect the price, what to ask a developer and how to choose a website that supports your business.",
+    "featured": false,
+    "body": []
+  },
+  {
+    "slug": "local-seo-south-africa-small-business",
+    "title": "Local SEO in South Africa: A Practical Checklist for Small Businesses",
+    "metaDescription": "Help nearby customers find your South African business with accurate local listings, useful service pages, consistent details and genuine customer reviews.",
+    "date": "2026-11-20",
+    "category": "fullstack",
+    "excerpt": "Local search visibility is built on useful pages and trustworthy business information. Use this checklist to improve how customers discover your business.",
+    "featured": false,
+    "body": []
+  },
+  {
+    "slug": "remote-vs-onsite-it-support-south-africa",
+    "title": "Remote vs On-Site IT Support: What Does Your Business Need?",
+    "metaDescription": "Compare remote and on-site IT support for South African businesses. Learn which problems can be fixed remotely and when a technician needs to visit.",
+    "date": "2026-11-20",
+    "category": "troubleshoot",
+    "excerpt": "Many IT problems can be diagnosed remotely, but hardware and physical network faults may need an on-site visit. Here is how to choose the right support.",
+    "featured": false,
+    "body": []
   }
 ]
